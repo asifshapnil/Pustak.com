@@ -6,7 +6,7 @@
                 </div>
                 <div class="primary-nav__button">
                     <ul > 
-                        <li><a class="btn1 btn2--header" href="signup.html">Sign Up</a></li>
+                        <li><a class="btn1 btn2--header" href="{{ route('front-signUp') }}">Sign Up</a></li>
                         <li><a class="btn1 btn2--header" href="{{ route('front-signIn') }}">Sign In</a></li>
                         <li><a class="btn1 btn2--header" href="#">Profile</a></li>
                     </ul>
