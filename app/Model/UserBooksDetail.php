@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserBooksDetails extends Model
+class UserBooksDetail extends Model
 {
   protected $table="userBooksDetails";
 
@@ -13,7 +13,7 @@ class UserBooksDetails extends Model
   }
 
   public function image(){
-     return $this->hasMany('App\Model\Image');
+     return $this->hasMany('App\Model\BookImage');
   }
 
   public function book(){

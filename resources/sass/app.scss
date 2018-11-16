@@ -698,12 +698,21 @@ tr:nth-child(even) {
   padding: 1.5rem 2rem;
   border-radius: 2px;
   background-color: white;
-  border: none;
-  border-bottom: 3px solid transparent;
+  border: 2px solid  #e2e2e2;
+  // border: none;
+  // border-bottom: 3px solid transparent;
   width: 100%;
   display: block;
   transition: all .3s;
  }
+ .add_title:after{
+  background-color: #e2e2e2;
+  height: 50px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+
+}
 
   .form__input:focus, .form__input_other:focus {
     outline: none;
