@@ -14,6 +14,9 @@
 // Route::get('/', function () {
 //     return view('front.home');
 // });
+Route::get("/new", function(){
+  return view('front.newBook');
+});
 
 Route::get('/', 'Front\HomeController@index')->name('front-home');
 Route::get('/book-details', 'Front\HomeController@bookDetails')->name('front-book-details');

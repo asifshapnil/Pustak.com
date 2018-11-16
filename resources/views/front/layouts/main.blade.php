@@ -14,6 +14,8 @@
 
       <link rel="stylesheet" href="css/style.css">
       <title>BookSharing</title>
+      @yield('custom_css')
+
   </head>
   <body>
     @yield('content')

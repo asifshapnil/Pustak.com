@@ -15,7 +15,7 @@
 
       <div class="row">
         <div class="col-1-of-3">
-             <div class="card">
+             <div class="my_card">
                  <div class="card__side card__side--front">
                      <div class="card__picture card__picture--1" style="background-image:url({{url('images/paul-schafer.jpg')}})">
                          &nbsp;

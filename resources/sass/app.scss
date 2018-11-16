@@ -485,7 +485,7 @@ tr:nth-child(even) {
   background-color: #dddddd;
  }
 
-.card {
+.my_card {
   perspective: 150rem;
   -moz-perspective: 150rem;
   position: relative;
@@ -519,10 +519,10 @@ tr:nth-child(even) {
       .card__side--back-3 {
         background-image: linear-gradient(to right bottom, #2998ff, #5643fa);
        }
-  .card:hover .card__side--front {
+  .my_card:hover .card__side--front {
     transform: rotateY(-180deg);
    }
-  .card:hover .card__side--back {
+  .my_card:hover .card__side--back {
     transform: rotateY(0);
    }
   .card__picture {
@@ -782,6 +782,8 @@ tr:nth-child(even) {
   background-size: 100%;
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2); 
+  width: 100%;
+
 }
   .book__form {
     padding: 6rem;
@@ -1091,3 +1093,112 @@ margin-top: -20px;
     width: 80%;
     float: right; 
   }
+
+
+  // profile
+
+  .section-profile {
+    padding-top: 10rem; 
+  
+}
+.profile {
+  margin: 0 auto;
+  font-size: 1.6rem;
+  margin-top: 6rem; }
+  .profile__shape {
+    width: 18rem;
+    height: 18rem;
+    margin-left: 12px;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    position: relative; }
+  .profile__img {
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+    backface-visibility: hidden;
+    transition: all .5s; }
+  .profile__text {
+    padding: 25px;
+    text-align: center; }
+  .profile__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden; }
+  .profile:hover .profile__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%); }
+  .profile:hover .profile__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%); }
+
+.pro {
+  margin-top: -50px; }
+
+.profile-details {
+  margin-top: 6rem; }
+
+.books {
+  border: 1px solid #d8d2d2;
+  margin-top: 6rem;
+  width: 90%; }
+
+.buttons {
+  margin-bottom: 2rem !important;
+  padding: 10px;
+  padding-left: 25px; }
+
+.mybook {
+  display: flex;
+  margin-bottom: 2rem !important; }
+
+.book-image {
+  width: 50%;
+  height: 100%;
+  padding: 26px; }
+
+.description {
+  margin-top: 2rem; }
+
+.right {
+  float: right;
+  padding-right: 1rem; }
+
+.about-me {
+  margin-top: 2rem;
+  padding: 3rem; }
+
+.text-about {
+  border: none; }
+  .profile-button:link, .profile-button:visited {
+    width: 43%;
+    height: 100%;
+    font-size: 1.6rem;
+    color: #777;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid #d8d2d2;
+    padding: 10px;
+    transition: all .2s;
+    margin-right: 16px;
+    padding: 10px 60px 10px 26px;
+    text-transform: uppercase; }
+  
+  .profile-button:hover {
+    background-color: #f3f2f2;
+    color: #777;
+    transform: translateY(-2px); }
+  
+  .profile-button:active {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transform: translateY(0); }
+  // profile-ends
