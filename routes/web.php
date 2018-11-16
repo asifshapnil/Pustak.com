@@ -26,10 +26,14 @@ Route::post('/signUp', 'Front\AuthController@store_signUp')->name('store-front-s
 
 Route::get('/signIn', 'Front\AuthController@signIn')->name('front-signIn');
 Route::post('/signIn', 'Front\AuthController@store_signIn')->name('store-front-signIn');
+Route::get('/sign-out', 'Front\AuthController@logout')->name('user-logout');
 
 Route::middleware('auth')->prefix('user')->group(function(){
+
   Route::get('/my-page', 'User\ProfileController@index')->name('user-my-page');
 
   Route::get('/add-book', 'User\BookController@addNew')->name('add-new-book');
+  Route::post('/add-book', 'User\BookController@storeBook')->name('store-new-book');
+
 
 });

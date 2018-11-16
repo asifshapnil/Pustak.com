@@ -1,7 +1,7 @@
 @extends('users.layouts.main')
 
 @section('content')
-        
+   @include('users.layouts.nav')     
 
 
    
@@ -27,7 +27,7 @@
                 </div>
             </div> 
             <div class="pro">
-               <a href="#" class="profile-button .u-margin-btn  "> <i class=" icon fas fa-upload"> &nbsp;</i>upload image</a>
+               <a href="{{ route('add-new-book') }}" class="profile-button .u-margin-btn  "> <i class=" icon fas fa-upload"> &nbsp;</i>upload image</a>
 
                <a href="#" class="profile-button .u-margin-btn"><i class=" icon fas fa-upload"> &nbsp;</i>upload book</a>
 
