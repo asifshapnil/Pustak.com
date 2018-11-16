@@ -249,6 +249,7 @@ body {
   padding: 10px;
   transition: all .2s;
   margin-right: 16px;
+
  }
 
 .btn-text:hover {
@@ -1098,21 +1099,21 @@ margin-top: -20px;
   // profile
 
   .section-profile {
-    padding-top: 10rem; 
+    background: #fff;
   
 }
 .profile {
   margin: 0 auto;
   font-size: 1.6rem;
-  margin-top: 6rem; }
+  margin-top: 3rem; }
   .profile__shape {
-    width: 18rem;
-    height: 18rem;
-    margin-left: 12px;
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
+    width: 24rem;
+    height: 24rem;
+    margin-left: -10rem;
+    // -webkit-shape-outside: circle(50% at 50% 50%);
+    // shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     position: relative; }
   .profile__img {
     height: 100%;
@@ -1142,32 +1143,42 @@ margin-top: -20px;
     filter: blur(3px) brightness(80%); }
 
 .pro {
-  margin-top: -50px; }
+  margin-top: -80px; }
 
 .profile-details {
   margin-top: 6rem; }
 
 .books {
-  border: 1px solid #d8d2d2;
-  margin-top: 6rem;
-  width: 90%; }
+  margin-top: 3rem;
+  width: 100%;
+  margin-left: -11rem;
+  padding-right: 11rem; 
+  border-top: 3px solid #3490dc;
+
+}
 
 .buttons {
   margin-bottom: 2rem !important;
-  padding: 10px;
-  padding-left: 25px; }
+  
+ }
 
 .mybook {
   display: flex;
-  margin-bottom: 2rem !important; }
+  margin-bottom: 2rem !important; 
+}
 
 .book-image {
   width: 50%;
   height: 100%;
-  padding: 26px; }
+  padding: 18px 6px 0px 0px;
+}
 
 .description {
-  margin-top: 2rem; }
+  margin-top: 13px; 
+  margin-right: -12rem;
+  padding-left: 1rem;
+
+}
 
 .right {
   float: right;
@@ -1202,3 +1213,67 @@ margin-top: -20px;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     transform: translateY(0); }
   // profile-ends
+
+  // main.profile start
+
+  .profile_nav {
+     background: #f3f3f3;
+     padding: 1rem;
+
+
+  }
+  .nav_items{
+    text-align: center;
+  }
+  .items{
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 2rem;
+    font-size: 2rem;
+    color: #777;
+    
+  }
+
+  .items:hover{
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 2rem;
+    font-size: 2rem;
+    color: #777;
+
+    
+  }
+    // main.profile ends
+
+
+    // profile book buttons starts
+
+    .btn-items:link, .btn-items:visited {
+      font-size: 1.6rem;
+      color: #6b1717;
+      text-decoration: none;
+      display: inline-block;
+      border: 1px solid #380a0a;
+      padding: 8px;
+      -webkit-transition: all .2s;
+      transition: all .2s;
+      margin-right: 3px;
+      width: 25%;
+    
+     }
+    
+    .btn-items:hover {
+      background-color: #6b1717;
+      color: #fff;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+     }
+    
+    .btn-items:active {
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+      transform: translateY(0); 
+    }
+        // profile book buttons ends
+
+
+
