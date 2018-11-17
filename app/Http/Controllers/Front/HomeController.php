@@ -4,19 +4,19 @@ namespace App\Http\Controllers\Front;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\UserBooksDetail;
 
 class HomeController extends Controller
 {
     public function index(){
-      return view('front.home');
+      $data['allBooks'] = UserBooksDetail::paginate(6);
+      return view('front.home', $data);
     }
 
     public function bookDetails(Request $request){
-      if ($request->id == 1) {
-        return view('front.bookDetails');
-      }else {
-        return 'noting found';
-      }
+      $data['details'] = UserBooksDetail::where('id', $request->id)->with('image')->first();
+      return view('front.bookDetails', $data);
+      
     }
 
 

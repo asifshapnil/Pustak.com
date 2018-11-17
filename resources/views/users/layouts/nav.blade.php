@@ -6,7 +6,7 @@
         </div>
         <div class="primary-nav__button">
                 <ul > 
-                    <li><a class="btn1 btn2--header" href="#">{{ Auth::user()->fname }}{{ Auth::user()->lname }}</a></li>
+                    <li><a class="btn1 btn2--header" href="{{ route('user-my-page') }}">{{ Auth::user()->fname }}{{ Auth::user()->lname }}</a></li>
                     <li><a class="btn1 btn2--header" href="{{ route('user-logout') }}">Sign Out</a></li>
 
                 </ul>

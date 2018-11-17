@@ -41,28 +41,45 @@
                  </div>
                  <div class="col-1-of-2">
                      <div class="composition">
+
+                        @foreach ($details->image as $key=>$image)
+                            @php
+                                if($key == 0){
+                                    $image1 = '';
+                                    $image1 = $image->image;
+                                }elseif($key == 1){
+                                    $image2 = '';
+                                    $image2 = $image->image;
+                                }elseif($key == 2){
+                                    $image3 = '';
+                                    $image3 = $image->image;
+                                }else{
+
+                                }
+                            @endphp
+                        @endforeach
  
                          <img 
-                         srcset="images/paul-schafer.jpg 300w, images/paul-schafer.jpg 1000w,"
+                         srcset="images/{{ $image1 }} 300w, images/{{ $image1 }} 1000w,"
                          sizes="(max-width:65.25em) 20vw,(max-width:37.5em) 30vw,300px"
                          class="composition__photo composition__photo--p1"
-                         src="images/paul-schafer.jpg" 
+                         src="images/{{ $image1 }}" 
                          alt="photo 1"
                          >
  
                          <img 
-                         srcset="images/paul-schafer.jpg 300w, images/paul-schafer.jpg 1000w,"
+                         srcset="images/{{ $image2 }} 300w, images/{{ $image2 }} 1000w,"
                          sizes="(max-width:65.25em) 20vw,(max-width:37.5em) 30vw,300px"
                          class="composition__photo composition__photo--p2"
-                         src="images/paul-schafer.jpg" 
+                         src="images/{{ $image2 }}" 
                          alt="photo 2"
                          >
  
                          <img 
-                         srcset="images/paul-schafer.jpg 300w, images/paul-schafer.jpg 1000w,"
+                         srcset="images/{{ $image3 }} 300w, images/{{ $image3 }} 1000w,"
                          sizes="(max-width:65.25em) 20vw,(max-width:37.5em) 30vw,300px"
                          class="composition__photo composition__photo--p3"
-                         src="images/paul-schafer.jpg" 
+                         src="images/{{ $image3 }}" 
                          alt="photo 3"
                          > 
                              

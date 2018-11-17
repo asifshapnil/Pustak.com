@@ -48,7 +48,7 @@ class BookController extends Controller
 
           $file = new BookImage;
           // $file->user_email = Auth::user()->email;
-          $file->userBooksDetail_id = $userBook->id;
+          $file->user_books_detail_id = $userBook->id;
           $file->image = $filename;
           $file->save();
 
@@ -56,6 +56,6 @@ class BookController extends Controller
       }
   
 
-      return riderect()->back()->with('success', 'A new book added');
+      return redirect()->back()->with('success', 'A new book added');
     }
 }
