@@ -5,8 +5,14 @@
    </div>
    <div class="header__main-nav">
        <ul >
-           <li><a class="btn1 btn2--header" href="{{ route('front-signUp') }}">Sign Up</a></li>
-           <li><a class="btn1 btn2--header" href="{{ route('front-signIn') }}">Sign In</a></li>
+            @if (Auth::check())
+                <li><a class="btn1 btn2--header" href="{{ route('user-my-page') }}">{{ Auth::user()->fname }}{{ Auth::user()->lname }}</a></li>
+                <li><a class="btn1 btn2--header" href="{{ route('user-logout') }}">Sign Out</a></li>
+            @else
+                <li><a class="btn1 btn2--header" href="{{ route('front-signUp') }}">Sign Up</a></li>
+                 <li><a class="btn1 btn2--header" href="{{ route('front-signIn') }}">Sign In</a></li>
+
+            @endif
        </ul>
    </div>
 

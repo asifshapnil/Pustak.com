@@ -1,7 +1,12 @@
 @extends('front.layouts.main')
 
 @section('content')
-@include('front.layouts.book_details_tab')
+@if (Auth::check())
+    @include('users.layouts.nav')
+@else
+    @include('front.layouts.book_details_tab')
+@endif
+
 <section class="section-about">
 
     <section class="section-about">
