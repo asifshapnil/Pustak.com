@@ -15,7 +15,7 @@
 
       <div class="row">
           @php
-              $image1 = '';
+              $getImage = '';
           @endphp
           @foreach ($allBooks as $book)
             @foreach ($book->image as $key=>$image)

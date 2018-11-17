@@ -58,7 +58,9 @@
                                 }
                             @endphp
                         @endforeach
- 
+
+                        @if(isset($image1))
+                        
                          <img 
                          srcset="images/{{ $image1 }} 300w, images/{{ $image1 }} 1000w,"
                          sizes="(max-width:65.25em) 20vw,(max-width:37.5em) 30vw,300px"
@@ -66,7 +68,9 @@
                          src="images/{{ $image1 }}" 
                          alt="photo 1"
                          >
- 
+                         @endif
+                         @if(isset($image2))
+                        
                          <img 
                          srcset="images/{{ $image2 }} 300w, images/{{ $image2 }} 1000w,"
                          sizes="(max-width:65.25em) 20vw,(max-width:37.5em) 30vw,300px"
@@ -74,7 +78,8 @@
                          src="images/{{ $image2 }}" 
                          alt="photo 2"
                          >
- 
+                         @endif
+                        @if(isset($image3))
                          <img 
                          srcset="images/{{ $image3 }} 300w, images/{{ $image3 }} 1000w,"
                          sizes="(max-width:65.25em) 20vw,(max-width:37.5em) 30vw,300px"
@@ -82,7 +87,7 @@
                          src="images/{{ $image3 }}" 
                          alt="photo 3"
                          > 
-                             
+                         @endif    
                      </div>
                  </div>
              </div>
