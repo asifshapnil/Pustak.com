@@ -72,43 +72,20 @@
               
           @endforeach
         </div>
+        
+        
 
 
       
 
-       <div class="u-center-text u-margin-top-huge">
-               <!-- <a href="#" class="btn btn--green">Discover all tours</a> -->
-          </div>
-
-
+  
 </section>
-        <!-- section books ends 1st  -->
+<div class="row justify-content-center">
+        <h1 class="text-center">
+            {{ $allBooks->render() }}
+        </h1>
+</div>
 
-
-             <!-- section books starts 2nd  -->
-        
-                  <!-- section books ends 2nd  -->
-                       <!-- section books ends  -->
-
-
-
-
-
- <!-- pagination start -->
-       <div class="u-center-text u-margin-top-huge">
-           <div class="pagination">
-               {{-- <a href="#">&laquo;</a>
-               <a href="#">1</a>
-               <a class="active" href="#">2</a>
-               <a href="#">3</a>
-               <a href="#">4</a>
-               <a href="#">5</a>
-               <a href="#">6</a>
-               <a href="#">&raquo;</a> --}}
-               {{ $allBooks->render() }}
-             </div>
-
-           </div>
 @endsection
 
 @section('custom_js')

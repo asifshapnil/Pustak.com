@@ -19,6 +19,8 @@
   </head>
   <body>
     @yield('content')
+    @include('users.layouts.footer')
+
   </body>
 </html>
 

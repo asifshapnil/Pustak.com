@@ -11598,7 +11598,8 @@ tr:nth-child(even) {
 }
 
 .row [class^="col-"]:not(:last-child) {
-  margin-right: 6rem;
+  margin-right: 4rem;
+  margin-bottom: 6rem;
 }
 
 .row::after {
@@ -11629,27 +11630,6 @@ tr:nth-child(even) {
 
 .row .col-3-of-4 {
   width: calc( 3*((100% - 3 * 6rem) / 4) + 2* 6rem);
-}
-
-.pagination {
-  display: inline-block;
-  font-size: 2rem;
-}
-
-.pagination a {
-  color: black;
-  float: left;
-  padding: 10px 20px;
-  text-decoration: none;
-}
-
-.pagination a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.pagination a:hover:not(.active) {
-  background-color: #ddd;
 }
 
 .primary-nav {
@@ -11976,5 +11956,16 @@ tr:nth-child(even) {
           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   -webkit-transform: translateY(0);
           transform: translateY(0);
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 1.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #3490dc;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
 }
 

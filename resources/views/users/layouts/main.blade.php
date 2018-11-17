@@ -19,6 +19,8 @@
   </head>
   <body>
     @yield('content')
+    @include('users.layouts.footer')
+
   </body>
   <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
   @yield('custom_js')
