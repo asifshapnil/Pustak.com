@@ -1293,6 +1293,16 @@ margin-top: -20px;
       background-color: #fff;
       border: 1px solid #dee2e6;
     }
+    .page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #6B1717;
+    border-color: #6B1717;
+  
+}
+.page-link, .page-link:hover{
+      color: #6B1717;
+}
     // pagionation-ends
 
 
