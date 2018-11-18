@@ -6,7 +6,7 @@
 
    
 
-  <section class="section-profile" style="margin-top:100px;">
+  <section class="section-profile" >
     <div class=" profile_nav">
         <div class=" nav_items">
         <a href="" class="items">books</a>

@@ -490,8 +490,10 @@ tr:nth-child(even) {
   perspective: 150rem;
   -moz-perspective: 150rem;
   position: relative;
-  height: 52rem;
-  color: #777; 
+  height: 55rem;
+  color: #777;
+  margin-left: 4rem;
+  width: 89%;
 }
   .card__side {
     height: 52rem;
@@ -817,7 +819,9 @@ tr:nth-child(even) {
 
 .section-about {
   background-color: #f7f7f7;
-  padding: 20rem 0;
+  // padding: 20rem 0;
+  margin-top: 18rem;
+
  }
 
 .landing-nav {
@@ -931,6 +935,13 @@ tr:nth-child(even) {
   color: #000;
   font-size: 18px;
  }
+ .icon:hover {
+  text-decoration: none;
+ }
+ a:hover {
+  /* color: #1d68a7; */
+  text-decoration: none;
+}
 
 .search-box-text {
   border: none;
@@ -958,13 +969,14 @@ tr:nth-child(even) {
  }
 
 .row {
-  max-width: 114rem;
+  // max-width: 114rem; 
+  max-width: 120rem;
   margin: 0 auto;
 
 }
   .row:not(:last-child) {
     margin-bottom: 8rem;
-   }
+   } 
   .row [class^="col-"] {
     float: left;
    }
@@ -975,7 +987,7 @@ tr:nth-child(even) {
      }
   .row::after {
     content: "";
-    display: table;
+    display: table; 
     clear: both;
    }
   .row .col-1-of-2 {
@@ -1000,9 +1012,10 @@ tr:nth-child(even) {
 
 
 .primary-nav {
-  padding: 2rem 0px;
+  padding: 1rem 0px;
   overflow: hidden;
-  background-image: linear-gradient(to right bottom, #f3f2f2, #000);
+  background-color: #383838;
+  // background-image: linear-gradient(to right bottom, #f3f2f2, #000);
   position: fixed;
   top: 0;
   width: 100%;
@@ -1011,7 +1024,7 @@ tr:nth-child(even) {
   .primary-nav__search-input {
     position: absolute;
     top: 47%;
-    left: 65%;
+    left: 65%; 
     transform: translate(-50%, -50%);
     background: white;
     height: 30px;
@@ -1107,6 +1120,7 @@ margin-top: -20px;
 
   .section-profile {
     background: #fff;
+    margin-top:7rem;
   
 }
 .profile {
@@ -1116,7 +1130,7 @@ margin-top: -20px;
   .profile__shape {
     width: 24rem;
     height: 24rem;
-    margin-left: -10rem;
+    margin-left: -12rem;
     // -webkit-shape-outside: circle(50% at 50% 50%);
     // shape-outside: circle(50% at 50% 50%);
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);

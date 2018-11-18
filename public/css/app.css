@@ -11032,8 +11032,10 @@ tr:nth-child(even) {
           perspective: 150rem;
   -moz-perspective: 150rem;
   position: relative;
-  height: 52rem;
+  height: 55rem;
   color: #777;
+  margin-left: 4rem;
+  width: 89%;
 }
 
 .card__side {
@@ -11417,7 +11419,7 @@ tr:nth-child(even) {
 
 .section-about {
   background-color: #f7f7f7;
-  padding: 20rem 0;
+  margin-top: 18rem;
 }
 
 .landing-nav {
@@ -11552,6 +11554,15 @@ tr:nth-child(even) {
   font-size: 18px;
 }
 
+.icon:hover {
+  text-decoration: none;
+}
+
+a:hover {
+  /* color: #1d68a7; */
+  text-decoration: none;
+}
+
 .search-box-text {
   border: none;
   background: none;
@@ -11585,7 +11596,7 @@ tr:nth-child(even) {
 }
 
 .row {
-  max-width: 114rem;
+  max-width: 120rem;
   margin: 0 auto;
 }
 
@@ -11633,10 +11644,9 @@ tr:nth-child(even) {
 }
 
 .primary-nav {
-  padding: 2rem 0px;
+  padding: 1rem 0px;
   overflow: hidden;
-  background-image: -webkit-gradient(linear, left top, right bottom, from(#f3f2f2), to(#000));
-  background-image: linear-gradient(to right bottom, #f3f2f2, #000);
+  background-color: #383838;
   position: fixed;
   top: 0;
   width: 100%;
@@ -11757,6 +11767,7 @@ tr:nth-child(even) {
 
 .section-profile {
   background: #fff;
+  margin-top: 7rem;
 }
 
 .profile {
@@ -11768,7 +11779,7 @@ tr:nth-child(even) {
 .profile__shape {
   width: 24rem;
   height: 24rem;
-  margin-left: -10rem;
+  margin-left: -12rem;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   position: relative;
