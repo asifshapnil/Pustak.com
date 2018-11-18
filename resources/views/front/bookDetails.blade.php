@@ -18,17 +18,17 @@
             <a href="#" class=" u-margin-btn right "> <i class="textred icon fas fa-heart"> &nbsp;favourite</i></a>
         </h3>
         <p class="paragraph">
-            The True story 
+           {{ $details->title }}
         </p>
 
-        <h3 class="heading-tertiary u-margin-bottom-small">Author Name &rarr;   Mahmud Al Saeed</h3>
+        <h3 class="heading-tertiary u-margin-bottom-small">Author Name &rarr;   {{ $details->writers_name }}</h3>
         
         <h3 class="heading-tertiary u-margin-bottom-small">Edition &rarr;  The True story  2018</h3>
         
 
         <h3 class="heading-tertiary u-margin-bottom-small">Condition &rarr;  Good </h3>
         
-        <h3 class="heading-tertiary u-margin-bottom-medium ">ISBN No. &rarr; 123456789 </h3>
+        <h3 class="heading-tertiary u-margin-bottom-medium ">ISBN No. &rarr; {{ $details->isbn_no }} </h3>
     
         <a href="#popup" class="btn-text">request Now &rarr;</a>
         <a href="#popup" class="btn-text .u-margin-btn  "> <i class=" icon fab fa-angellist"> &nbsp;</i>suggest book</a>
@@ -54,23 +54,6 @@
         </div>
         <div class="col-1-of-2">
             <div class="composition">
-
-            @foreach ($details->image as $key=>$image)
-                @php
-                    if($key == 0){
-                        $image1 = '';
-                        $image1 = $image->image;
-                    }elseif($key == 1){
-                        $image2 = '';
-                        $image2 = $image->image;
-                    }elseif($key == 2){
-                        $image3 = '';
-                        $image3 = $image->image;
-                    }else{
-
-                    }
-                @endphp
-            @endforeach
 
             @if(isset($image1))
             
@@ -112,15 +95,13 @@
     
     <div class="row">
             <div class="col-2-of-3">
-                    <h3 class="heading-tertiary u-margin-bottom-small storyname">Author Name </h3>
+                    <h3 class="heading-tertiary u-margin-bottom-small why-should-i"> A summery of the book on my point of view </h3>
 
                     <div class="text-area u-margin-bottom-small">
-                        <textarea rows="8" cols="50" class="text-details">
-                            I HAD THE BEST WEEK EVER WITH MY FAMILY
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis laborum explicabo impedit optio tempore voluptas earum eum, soluta eveniet dolorum ullam officiis nobis unde repellendus. Culpa suscipit officiis voluptatum qui.                                         </textarea>
+                        {{ $details->summery }}
                     </div>
                     <div class="save-button u-margin-bottom-medium">
-                    <a class="save " href="">save</a>
+                 
                     </div> 
 
             </div>
@@ -144,21 +125,17 @@
                 </div>
                 </div>
             </div>
+            
         </div>
         <!-- why you need me -->
         <div class="row">
             <div class="col-2-of-3">
-                <h3 class="heading-tertiary u-margin-bottom-small why-should-i">Why Should  You Take From Me </h3>
+                <h3 class="heading-tertiary u-margin-bottom-small why-should-i">A short description of the hard copy</h3>
 
                 <div class="text-area u-margin-bottom-small">
-                    <textarea rows="8" cols="50" class="text-details">
-                        I HAD THE BEST WEEK EVER WITH MY FAMILY
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis laborum explicabo impedit optio tempore voluptas earum eum, soluta eveniet dolorum ullam officiis nobis unde repellendus. Culpa suscipit officiis voluptatum qui.     
-                        </textarea>
+                    {{ $details->description }}
                 </div>
-                <div class="save-button u-margin-bottom-medium">
-                    <a class="save " href="">save</a>
-                </div>
+             
             </div>
             
             <div class="col-1-of-3">
@@ -182,6 +159,36 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-2-of-3">
+                <h3 class="heading-tertiary u-margin-bottom-small why-should-i">My conditions for you</h3>
+
+                <div class="text-area u-margin-bottom-small">
+                    {{ $details->condition }}
+                </div>
+             
+            </div>
+            
+            <div class="col-1-of-3">
+                <div class="public">
+                    <div class="row">
+                        <div class="story">
+                            <figure class="story__shape">
+                                    <img src="img/nat-9.jpg" alt="person on a tour" class="story__img">
+                                    <figcaption class="story__caption">Jack Wilson </figcaption>
+                                </figure>
+                            <div class="story__text">
+                                <h3 class="heading-tertiary u-margin-bottom-small"> completely different now</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+                            </div>
+    
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
         
 
                     
