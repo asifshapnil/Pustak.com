@@ -35,5 +35,8 @@ Route::middleware('auth')->prefix('user')->group(function(){
   Route::get('/add-book', 'User\BookController@addNew')->name('add-new-book');
   Route::post('/add-book', 'User\BookController@storeBook')->name('store-new-book');
 
+  Route::get('/category', 'User\ProfileController@get_book_by_category')->name('book-by-category');
+
+
 
 });
