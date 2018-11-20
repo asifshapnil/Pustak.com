@@ -58,4 +58,63 @@ class BookController extends Controller
 
       return redirect()->back()->with('success', 'A new book added');
     }
+
+    public function showEditPage(Request $request, $title, $id){
+      $data['details'] = UserBooksDetail::Join('books', 'userbooksdetails.book_id', '=', 'books.id')
+      ->join('categories', 'categories.id', '=', 'books.category_id')
+      ->join('writers', 'writers.id', '=', 'books.writer_id')
+      ->select('userbooksdetails.*', 'books.title', 'categories.category_name', 'writers.writers_name' )
+      ->where('userbooksdetails.id', '=', $request->id)
+      ->first();
+      return view('users.editBook', $data);
+    }
+
+    public function storeEditBook(Request $request){
+      $userBook = UserBooksDetail::where('id', $request->id)->first();
+      $userBook->user_id = Auth::user()->id;
+      $userBook->book_id = $request->title;
+      $userBook->publisher = $request->publisher;
+      $userBook->publishing_year = $request->publishing_year;
+      $userBook->isbn_no = $request->isbn;
+      $userBook->description = $request->description;
+      $userBook->condition = $request->condition_to_exchange;
+      $userBook->status = 1;
+      $userBook->is_delete = 0;
+
+
+      $userBook->summery = $request->summery;
+      $userBook->why_from_me = $request->why_from_me;
+      $userBook->save();
+      
+      
+      if($request->image){
+        foreach ($request->image as $image) {
+          if ($request->hasFile('image')) {
+  
+            $filename = time() . "." . $image->getClientOriginalExtension();
+            $location = public_path('images/' . $filename);
+            $img = Image::make($image);
+            $img->save($location );
+  
+            $file = new BookImage;
+            // $file->user_email = Auth::user()->email;
+            $file->user_books_detail_id = $userBook->id;
+            $file->image = $filename;
+            $file->save();
+  
+          }
+        }
+      }
+  
+
+      return redirect()->back()->with('success', 'Book updated');
+    }
+
+    public function delete(Request $request){
+      $getBook = UserBooksDetail::where('id', $request->book)->delete();
+      $getImage = BookImage::where('user_books_detail_id', $request->book)->delete();
+      
+      return redirect()->back();
+
+    }
 }

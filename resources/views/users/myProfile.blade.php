@@ -55,7 +55,7 @@
                 <div class="description">
                     <a href="#" class="u-margin-btn right "> <i class=" textred icon fas fa-heart"> &nbsp;favourite</i></a>
                     <h3 class="heading-tertiary u-margin-bottom-small ">{{ $book->title }}
-                        <sub>{{ $book->writers_name }}  -  <a href="{{ route('book-by-category', ['cat'=> $book->category_name]) }}" style="color:#6B1717;">{{ $book->category_name }}</a> </sub>
+                        <sub><a href="{{ route('front-home', ['writer'=> $book->writers_name]) }}" style="color:#6B1717;">{{ $book->writers_name }}</a>  -  <a href="{{ route('front-home', ['cat'=> $book->category_name]) }}" style="color:#6B1717;">{{ $book->category_name }}</a> </sub>
                     </h3>
                     
 
@@ -65,8 +65,8 @@
                     <div class="buttons">
                         <a href="#" class="btn-items .u-margin-btn  "> <i class=" icon fab fa-angellist"> &nbsp;</i>request book</a>
                         <a href="#" class="btn-items .u-margin-btn  "> <i class=" icon fab fa-angellist"> &nbsp;</i>suggest book</a>
-                        <a href="#" class="btn-items .u-margin-btn  "> <i class=" icon fas fa-edit"> &nbsp;</i>edit book</a>
-                        <a href="#" class=" .u-margin-btn right"> <i class=" icon fas fa-trash-alt"> &nbsp;</i></h1></a>
+                        <a href="{{ route('user-edit-book', ['title'=>$book->title, 'id'=>$book->id]) }}" class="btn-items .u-margin-btn  "> <i class=" icon fas fa-edit"> &nbsp;</i>edit book</a>
+                        <a href="{{ route('book-delete', ['book' => $book->id]) }}" class=""> <i class="icontrash icon fas fa-trash-alt" style="font-size:18px;"> &nbsp;</i></a>
                         <div class="star u-margin-bottom-small">
                             {{-- rating start --}}
                             <fieldset class="rating ">

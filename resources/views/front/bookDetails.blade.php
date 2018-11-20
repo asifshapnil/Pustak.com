@@ -259,7 +259,7 @@
                       </div>
                 </div>
                 <div class="popup__right">
-                    <a href="bookdetails.html" class="popup__close">&times;</a>
+                    <a href="{{ route('front-book-details', ['id'=>$details->id]) }}" class="popup__close">&times;</a>
                     <h2 class="heading-secondary u-margin-bottom-small tab_port"> Available Friends</h2>
                     <table>
                         <tr>
