@@ -100,9 +100,6 @@
                     <div class="text-area u-margin-bottom-small">
                         {{ $details->summery }}
                     </div>
-                    <div class="save-button u-margin-bottom-medium">
-                 
-                    </div> 
 
             </div>
             
@@ -196,48 +193,11 @@
                 
                 
 
-    </div> 
-    <div class="comment">
-            <h3 class="heading-tertiary u-margin-bottom-small u-padding-top storyname">Your Comment &rarr;</h3>
-
-        <textarea class="comment__details  u-margin-bottom-small" name="comment" id="" cols="65" rows="7">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </textarea>
-        <div class="save-button u-margin-bottom-medium">
-            <a class="save " href="">save</a>
-        </div>
-    </div>
-                            
+    </div>                 
     
 </section>
 
         
-        
-<!-- footer    -->
-<footer class="footer">
-        <div class="row">
-            <div class="col-1-of-2">
-                <div class="footer__navigation">
-                    <ul class="footer__list">
-                        <li class="footer__item"><a href="#" class="footer__link">Company</a></li>
-                        <li class="footer__item"><a href="#" class="footer__link">Contact</a></li>
-                        <li class="footer__item"><a href="#" class="footer__link">Carrers</a></li>
-                        <li class="footer__item"><a href="#" class="footer__link">Privacy</a></li>
-                        <li class="footer__item"><a href="#" class="footer__link">Terms</a></li>
-                     </ul>
-                </div>
-            </div>
-            <div class="col-1-of-2">
-                <p class="footer__copyright">
-                    Built by saeedsami and my gmail is
-                     <a href="#" class="footer__link">saeedsami333@gmail.com</a>
-                     .Copyright &copy; by <a href="#" class="footer__link">Saeed Sami</a>. You are 100% allowed to use this website for the both personal and commercial use, but not to claim it as your own design. A credit to the orginal author, saeedsami, is highly appreciated!.
-                </p>
-            </div>
-        </div>
-    </footer>
-
-
     <!-- popup  -->
     <div class="popup" id="popup">
             <div class="popup__content">
@@ -281,8 +241,8 @@
                     </table>
                 </div>
             </div>
-        </div>        
-     
+        </div>   
+
     </section>
 @endsection
 

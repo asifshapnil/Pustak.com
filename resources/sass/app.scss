@@ -9,12 +9,12 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 *,
-*::after,
+*::after, 
 *::before {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
- }
+ } 
 
 html {
   font-size: 62.5%;
@@ -127,7 +127,8 @@ body {
 .btn1:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 3px 18px 5px 13px;
+  // padding: 3px 18px 5px 13px;
+  padding: 5px 16px 3px 13px;
   display: inline-block;
   border-radius: 10rem;
   transition: all .2s;
@@ -138,6 +139,8 @@ body {
   margin-left: 10px;
   margin-top: 23px;
   color: #000;
+  height: 26px;
+  width: 74px;
  }
 
 .btn1:hover {
@@ -1039,7 +1042,7 @@ tr:nth-child(even) {
   
   }
   .primary-nav__button > ul {
-    margin-top: 2px;
+    margin-top: 25px;
     margin-right: 25px;
     float: right;
   
@@ -1367,3 +1370,22 @@ fieldset, label { margin: 0; padding: 0; }
   .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
   .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
   // rating end
+
+
+  // logo
+ 
+    .logoimg {
+      height: 81px;
+      width: 90px;
+      float: left;
+      margin-top: 20px;
+      top: 0;
+      left: 0;
+      padding-left: 60px;
+  }
+
+  .logo{
+    margin-top: -3rem;
+
+  }
+  
