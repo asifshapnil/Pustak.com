@@ -1,6 +1,7 @@
 @extends('front.layouts.main')
 
 @section('content')
+
   <section class="section-book">
             <div class="row">
                 <div class="book" style="background-image:linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%),url({{url('images/paul-schafer.jpg')}})">
@@ -11,6 +12,7 @@
                                  <h2 class="heading-secondary">
                                  Start sign in now
                                  </h2>
+                                
                             </div>
 
                             <div class="form__group">

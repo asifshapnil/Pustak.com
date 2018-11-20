@@ -10,7 +10,7 @@
     <div class=" profile_nav">
         <div class=" nav_items">
         <a href="" class="items">books</a>
-        <a href="" class="items">books</a>
+        <a href="{{ route('add-new-book') }}" class="items">Uload Books</a>
         <a href="" class="items">books</a>
         <a href="" class="items">books</a>
         </div>
@@ -27,9 +27,9 @@
                 </div>
             </div> 
             <div class="pro">
-               <a href="{{ route('add-new-book') }}" class="profile-button .u-margin-btn  "> <i class=" icon fas fa-upload"> &nbsp;</i>upload image</a>
+               <a href="{{ route('add-new-book') }}" class="profile-button .u-margin-btn  "> <i class=" icon fas fa-upload"> &nbsp;</i>upload Book</a>
 
-               <a href="#" class="profile-button .u-margin-btn"><i class=" icon fas fa-upload"> &nbsp;</i>upload book</a>
+               <a href="#" class="profile-button .u-margin-btn"><i class=" icon fas fa-upload"> &nbsp;</i>profile</a>
 
                <a href="#" class="profile-button .u-margin-btn"><i class=" icon fas fa-upload"> &nbsp;</i>upload book</a>
                 
