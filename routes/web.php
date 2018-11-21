@@ -27,6 +27,8 @@ Route::post('/signUp', 'Front\AuthController@store_signUp')->name('store-front-s
 Route::get('/signIn', 'Front\AuthController@signIn')->name('front-signIn');
 Route::post('/signIn', 'Front\AuthController@store_signIn')->name('store-front-signIn');
 Route::get('/sign-out', 'Front\AuthController@logout')->name('user-logout');
+Route::get('/authenticate-require', 'Front\AuthController@authenticateRequire')->name('need-authenticated');
+
 
 Route::middleware('auth')->prefix('user')->group(function(){
 
@@ -40,6 +42,11 @@ Route::middleware('auth')->prefix('user')->group(function(){
   Route::get('/category', 'User\ProfileController@get_book_by_category')->name('book-by-category');
   Route::get('/delete', 'User\BookController@delete')->name('book-delete');
 
+  Route::post('/book-details', 'User\ExchangeController@storeExchange')->name('store-exchange');
+  Route::get('/my-books-requests', 'User\ProfileController@get_book_requests')->name('book-requests');
 
 
 });
+
+
+

@@ -9,6 +9,9 @@ use App\Model\Book;
 use App\Model\Category;
 use App\Model\Writer;
 use App\Model\BookImage;
+use App\Model\Exchange;
+use App\Model\ExchangeDetails;
+
 use Auth;
 use Image;
 
@@ -28,6 +31,7 @@ class ProfileController extends Controller
       foreach($data['details'] as $userBook){
         $book_data[$i][0] = $userBook;
         $book_data[$i][1] = BookImage::where('user_books_detail_id', $userBook->id)->get();
+        $book_data[$i][2] = Exchange::where('user_books_detail_id', $userBook->id)->count();
         $getImage = $book_data[$i][1];
         foreach($getImage as $key => $image){
           if($key == 1){
@@ -54,5 +58,24 @@ class ProfileController extends Controller
 
       return view('front.home', $data);
 
+    }
+
+    public function get_book_requests(Request $request){
+      $getUser = Exchange::where('to_id', Auth::user()->id)->get();
+      $book_data = array();
+      $i = 0;
+      foreach($getUser as $book_id){
+        $book_data[$i][0] = UserBooksDetail::Join('books', 'userbooksdetails.book_id', '=', 'books.id')
+        ->join('categories', 'categories.id', '=', 'books.category_id')
+        ->join('writers', 'writers.id', '=', 'books.writer_id')
+        ->select('userbooksdetails.*', 'books.title', 'categories.category_name', 'writers.writers_name' )
+        ->where('userbooksdetails.id', '=', $book_id->user_books_detail_id)
+        ->first();
+        $book_data[$i][1] = ExchangeDetails::where('exchange_id', $book_id->id)->get();
+        $i++;
+      }
+
+      $data['book'] = $book_data;
+      dd($data['book']);
     }
 }

@@ -9,6 +9,8 @@ use App\Model\Book;
 use App\Model\Category;
 use App\Model\Writer;
 use App\Model\BookImage;
+use Auth;
+use Image;
 
 
 
@@ -65,10 +67,20 @@ class HomeController extends Controller
       
         }
         // return ($data['details']);
-      
-      return view('front.bookDetails', $data);
-      
+        if (Auth::check()) {
+            $data['my_books'] = UserBooksDetail::Join('books', 'userbooksdetails.book_id', '=', 'books.id')
+            ->join('categories', 'categories.id', '=', 'books.category_id')
+            ->join('writers', 'writers.id', '=', 'books.writer_id')
+            ->select('userbooksdetails.*', 'books.title', 'categories.category_name', 'writers.writers_name' )
+            ->where('userbooksdetails.user_id', '=', Auth::user()->id)
+            ->get();       
+        }
+        return view('front.bookDetails', $data);
+            
     }
+
+      
+      
 
 
 }

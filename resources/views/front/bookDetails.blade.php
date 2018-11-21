@@ -31,7 +31,16 @@
         <h3 class="heading-tertiary u-margin-bottom-medium ">ISBN No. &rarr; {{ $details->isbn_no }} </h3>
     
         <a href="#popup" class="btn-text">request Now &rarr;</a>
-        <a href="#popup" class="btn-text .u-margin-btn  "> <i class=" icon fab fa-angellist"> &nbsp;</i>suggest book</a>
+        @if (session('requested'))
+            <a href="" disabled class="btn-text .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i>Requested</a>
+        @else
+            @if (Auth::check())
+            <a href="#popup" class="btn-text .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i>Request book</a>
+            @else
+                <a href="{{ route('front-signIn', ['id'=>$details->id]) }}" class="btn-text .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i>Request book</a>
+            @endif
+        @endif
+       
 
         <div class="star u-margin-bottom-small">
                  {{-- rating start --}}
@@ -197,55 +206,14 @@
     
 </section>
 
-        
-    <!-- popup  -->
-    <div class="popup" id="popup">
-            <div class="popup__content">
-                <div class="popup__left">
-                    <!-- <img src="img/nat-8.jpg"  alt="Tour photo" class="popup__img">
-                    <img src="img/nat-9.jpg"  alt="Tour photo" class="popup__img"> -->
-        
-                    <div class=" popup-nav">
-                        <input class="popup-nav__text" type="text" placeholder="Type to search">
-                        <a class="popup-nav__btn" href=""><i class="icon fas fa-search"></i></a>
-                    </div>
-        
-                    <h4 class="heading-tertiary u-margin-bottom-small search-text" >Search Book and AUthor!!!</h4>
-                      <div class="search-content">
-                          <h3 class="heading-tertiary ">Book Name</h3>
-                          <p class="u-margin-bottom-small">Love Story</p>
-                          <h3 class="heading-tertiary ">Uploaded by</h3>
-                          <p class="u-margin-bottom-small"><a class="uploadedby" href="">Mahmud al saeed</a> </p>
-                      </div>
-                </div>
-                <div class="popup__right">
-                    <a href="{{ route('front-book-details', ['id'=>$details->id]) }}" class="popup__close">&times;</a>
-                    <h2 class="heading-secondary u-margin-bottom-small tab_port"> Available Friends</h2>
-                    <table>
-                        <tr>
-                          <th>MY Friends</th>
-                          <th>address</th>
-                        </tr>
-                        <tr>
-                          <td> <a href="">Md. Ariful</a> </td>
-                          <td> <a href="">Maria Anders</a> </td>
-                        </tr>
-                        <tr>
-                            <td> <a href="">rijvi</a> </td>
-                            <td> <a href="">Maria Anders</a> </td>
-                          </tr>
-                          <tr>
-                            <td> <a href="">shapnil</a> </td>
-                            <td> <a href="">Maria Anders</a> </td>
-                          </tr>
-                    </table>
-                </div>
-            </div>
-        </div>   
-
-    </section>
+      @include('front.layouts.myBooks_modal')  
+   
 @endsection
 
 @section('custom_js')
-    
+    <script type="text/javascript">
+        $('document').on('click', '#request', function(){
+            $('#my-books').modal('show');
+        })
+    </script>
 @endsection

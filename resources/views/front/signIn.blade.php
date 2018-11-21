@@ -5,7 +5,11 @@
             <div class="row">
                 <div class="book" style="background-image:linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%),url({{url('images/paul-schafer.jpg')}})">
                     <div class="book__form">
-                        <form action="{{ route('store-front-signIn') }}" class="form" method="post">
+                        @if (isset($bookId))
+                            <form action="{{ route('store-front-signIn', ['bookId'=>$bookId]) }}" class="form" method="post">
+                        @else
+                            <form action="{{ route('store-front-signIn') }}" class="form" method="post">
+                        @endif
                           {{ csrf_field() }}
                             <div class=" u-margin-bottom-medium">
                                  <h2 class="heading-secondary">
