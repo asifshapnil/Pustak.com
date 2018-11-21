@@ -44,6 +44,9 @@ class ExchangeController extends Controller
         $eDtails->status = 1;
         $eDtails->save();
 
+        $userBook = UserBooksDetail::where('id', $eDtails->user_books_detail_id)->first();
+        $userBook->status = 2;
+        $userBook->save();
         return redirect()->back();
     }
 }

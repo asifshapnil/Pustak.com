@@ -21,7 +21,8 @@ class HomeController extends Controller
     $allBooks = UserBooksDetail::Join('books', 'userbooksdetails.book_id', '=', 'books.id')
     ->join('categories', 'categories.id', '=', 'books.category_id')
     ->join('writers', 'writers.id', '=', 'books.writer_id')
-    ->select('userbooksdetails.*', 'books.title', 'categories.category_name', 'writers.writers_name' );
+    ->select('userbooksdetails.*', 'books.title', 'categories.category_name', 'writers.writers_name' )
+    ->where('status', '=', 1);
 
     if(isset($request->cat) || isset($request->writer)){
 

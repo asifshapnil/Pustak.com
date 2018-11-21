@@ -6,6 +6,7 @@
                         {{ csrf_field() }}
 
                 <table>
+                    @if (Auth::check())
                     @foreach ($my_books as $myBook)
                         <tr>
                             <th style="width:50px;">
@@ -21,6 +22,8 @@
 
                         </tr>
                     @endforeach
+                        
+                    @endif
                 </table>
                 <div class="popup__close p-5 offset-md-5">
                     <button type="submit" class="btn btn-md btn-text .u-margin-btn">Send Offer</button>
