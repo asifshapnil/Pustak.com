@@ -75,6 +75,9 @@ class HomeController extends Controller
             ->where('userbooksdetails.user_id', '=', Auth::user()->id)
             ->get();       
         }
+        if (isset($request->exchange_id)) {
+            $data['exchangeId'] = $request->exchange_id;
+        }
         return view('front.bookDetails', $data);
             
     }

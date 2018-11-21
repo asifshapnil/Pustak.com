@@ -39,4 +39,11 @@ class ExchangeController extends Controller
 
         return redirect()->back()->with('requested','requested');
     }
+    public function storeDecission(Request $request){
+        $eDtails = Exchange::where('id', $request->exchange_id)->first();
+        $eDtails->status = 1;
+        $eDtails->save();
+
+        return redirect()->back();
+    }
 }

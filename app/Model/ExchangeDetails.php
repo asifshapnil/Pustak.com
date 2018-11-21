@@ -11,4 +11,7 @@ class ExchangeDetails extends Model
   public function exchange(){
     return $this->hasMany('App\Model\Exchange');
  }   
+  public function userBooksDetail(){
+    return $this->belongsTo('App\Model\UserBooksDetail');
+  }
 }

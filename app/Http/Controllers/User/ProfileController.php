@@ -71,11 +71,25 @@ class ProfileController extends Controller
         ->select('userbooksdetails.*', 'books.title', 'categories.category_name', 'writers.writers_name' )
         ->where('userbooksdetails.id', '=', $book_id->user_books_detail_id)
         ->first();
-        $book_data[$i][1] = ExchangeDetails::where('exchange_id', $book_id->id)->get();
+        $book_data[$i][1] = BookImage::where('user_books_detail_id', $book_id->user_books_detail_id)->get();
+        $getImage = $book_data[$i][1];
+        foreach($getImage as $key => $image){
+          if($key == 1){
+            $coverImage = '';
+            $coverImage = $image->image;
+          }
+        }
+        $book_data[$i][1] = $coverImage;
+        $book_data[$i][2] = ExchangeDetails::Join('userbooksdetails', 'userbooksdetails.id', '=', 'exchangeDetails.user_books_detail_id')
+                            ->Join('books', 'books.id', '=', 'userbooksdetails.book_id')
+                            ->select('userbooksdetails.id', 'books.title', 'exchangeDetails.exchange_id', 'exchangeDetails.user_books_detail_id', 'exchangeDetails.qty')
+                            ->where('exchange_id', $book_id->id)->get();
+
         $i++;
       }
 
       $data['book'] = $book_data;
-      dd($data['book']);
+      
+      return view('users.my-books-requests', $data);
     }
 }

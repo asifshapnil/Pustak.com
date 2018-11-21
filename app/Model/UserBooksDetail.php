@@ -18,6 +18,9 @@ class UserBooksDetail extends Model
   public function exchane(){
     return $this->hasMany('App\Model\Exchange');
  }
+  public function exchaneDetails(){
+    return $this->hasMany('App\Model\ExchaneDetails');
+  }
 
   public function book(){
      return $this->belongsTo('App\Model\Book');

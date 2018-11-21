@@ -31,13 +31,17 @@
         <h3 class="heading-tertiary u-margin-bottom-medium ">ISBN No. &rarr; {{ $details->isbn_no }} </h3>
     
         <a href="#popup" class="btn-text">request Now &rarr;</a>
-        @if (session('requested'))
-            <a href="" disabled class="btn-text .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i>Requested</a>
-        @else
-            @if (Auth::check())
-            <a href="#popup" class="btn-text .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i>Request book</a>
+        @if (isset($exchangeId))
+            <a href="" disabled='disabled' class="btn-text .u-margin-btn disabled"> <i class=" icon fab fa-angellist"> &nbsp;</i>Pending</a>
+        @else 
+            @if (session('requested'))
+                <a href="" disabled class="btn-text .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i>Requested</a>
             @else
-                <a href="{{ route('front-signIn', ['id'=>$details->id]) }}" class="btn-text .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i>Request book</a>
+                @if (Auth::check())
+                <a href="#popup" class="btn-text .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i>Request book</a>
+                @else
+                    <a href="{{ route('front-signIn', ['id'=>$details->id]) }}" class="btn-text .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i>Request book</a>
+                @endif
             @endif
         @endif
        
