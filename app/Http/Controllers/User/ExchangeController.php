@@ -29,7 +29,7 @@ class ExchangeController extends Controller
         foreach($request->exchangableBookId as $exchangableBookId){
             $exchangeDetails = new ExchangeDetails();
             $exchangeDetails->exchange_id = $exchange->id;
-            $exchangeDetails->exchangable_book_id = $exchangableBookId;
+            $exchangeDetails->user_books_detail_id = $exchangableBookId;
             $exchangeDetails->qty = 1;
 
             $exchangeDetails->save();
