@@ -8,12 +8,14 @@
 
   <section class="section-profile" >
     <div class=" profile_nav">
-            <div class=" nav_items">
-                    <a href="" class="items">MyPage</a>
-                    <a href="{{ route('book-requests') }}" class="items">Exchange Offers</a>
-                    <a href="" class="items">Exchange Log</a>
-                    <a href="" class="items">books</a>
-                </div>
+        <div class=" nav_items">
+            <a href="" class="items">MyPage</a>
+            <a href="{{ route('book-requests') }}" class="items">My Exchange Offers</a>
+            <a href="{{ route('exchange-log') }}" class="items">My Exchange Requests</a>
+            <a href="{{ route('book-on-exchange') }}" class="items">My Books On Exchange</a>
+
+            <a href="" class="items">books</a>
+        </div>
     </div>
    <div class="row"> 
        <div class="col-1-of-3">
@@ -51,6 +53,7 @@
             
         {{-- {{ $book->id }}
         {{ $bookImage }} --}}
+        <h1 class="pt-5 mr-md-5">Requests for my books </h1>
         <div class="books">
             <div class="mybook">
                 <img class="book-image" src="{{ asset('images/'.$bookImage) }}" alt="">
@@ -79,22 +82,7 @@
                         <a href="#" class="btn-items .u-margin-btn  "> <i class=" icon fab fa-angellist"> &nbsp;</i>suggest book</a>
                         <a href="{{ route('user-edit-book', ['title'=>$book->title, 'id'=>$book->id]) }}" class="btn-items .u-margin-btn  "> <i class=" icon fas fa-edit"> &nbsp;</i>edit book</a>
                         <a href="{{ route('book-delete', ['book' => $book->id]) }}" class=""> <i class="icontrash icon fas fa-trash-alt" style="font-size:18px;"> &nbsp;</i></a>
-                        <div class="star u-margin-bottom-small">
-                            {{-- rating start --}}
-                            <fieldset class="rating ">
-                                <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                                <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-                                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                                <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-                                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-                                <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                                <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-                                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-                                <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-                            </fieldset>
-                        {{-- rating end --}}
-                            </div>
+               
                     </div>
                 </div>
             </div>
@@ -121,7 +109,8 @@
                         </table>
                         <div class="popup__close p-5 offset-md-5">
                                 <button type="submit" class="btn btn-md btn-text .u-margin-btn">Accept</button>
-                        </div>                   
+                            
+                            </div>                   
                         </form>
                     </div>
                 </div>

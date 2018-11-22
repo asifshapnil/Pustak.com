@@ -106,17 +106,85 @@
 <div class="book-about">
             
     
-    <div class="row">
-            <div class="col-2-of-3">
+    <div class="row"style="width:100% !important;">
+        <div class="col-md-7 p-0">
+            <div class="row" style="width:100% !important;">
+                <div class="col-12">
+                        <h3 class="heading-tertiary u-margin-bottom-small why-should-i"> A summery of the book on my point of view </h3>
+
+                        <div class="text-area u-margin-bottom-small">
+                            {{ $details->summery }}
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus et dicta, distinctio voluptate neque obcaecati ut repudiandae accusantium, eos, accusamus alias vero laboriosam officiis labore laborum mollitia recusandae facere enim.
+                        </div>
+                </div>
+                <div class="col-12">
+                        <h3 class="heading-tertiary u-margin-bottom-small why-should-i">A short description of the hard copy</h3>
+
+                        <div class="text-area u-margin-bottom-small">
+                            {{ $details->description }}
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 p-0">
+            <div class="row"  style="width:100% !important;">
+                <div class="col-12">
+                        <div class="story">
+                                <figure class="story__shape">
+                                        <img src="img/nat-9.jpg" alt="person on a tour" class="story__img">
+                                        <figcaption class="story__caption">Jack Wilson </figcaption>
+                                    </figure>
+                                <div class="story__text">
+                                    <h3 class="heading-tertiary u-margin-bottom-small"> completely different now</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+    
+                                </div>
+        
+                            </div>
+                </div>
+                <div class="col-12">
+                        <div class="story">
+                                <figure class="story__shape">
+                                        <img src="img/nat-9.jpg" alt="person on a tour" class="story__img">
+                                        <figcaption class="story__caption">Jack Wilson </figcaption>
+                                    </figure>
+                                <div class="story__text">
+                                    <h3 class="heading-tertiary u-margin-bottom-small"> completely different now</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+    
+                                </div>
+        
+                            </div>
+                </div>
+                <div class="col-12">
+                        <div class="story">
+                                <figure class="story__shape">
+                                        <img src="img/nat-9.jpg" alt="person on a tour" class="story__img">
+                                        <figcaption class="story__caption">Jack Wilson </figcaption>
+                                    </figure>
+                                <div class="story__text">
+                                    <h3 class="heading-tertiary u-margin-bottom-small"> completely different now</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+    
+                                </div>
+        
+                            </div>
+                </div>
+            </div>
+        </div>
+            {{-- <div class="col-2-of-3">
                     <h3 class="heading-tertiary u-margin-bottom-small why-should-i"> A summery of the book on my point of view </h3>
 
                     <div class="text-area u-margin-bottom-small">
                         {{ $details->summery }}
                     </div>
 
-            </div>
+            </div> --}}
             
-            <div class="col-1-of-3">
+            {{-- <div class="col-1-of-3">
                 <div class="public">
                 <div class="row">
                     <div class="story">
@@ -134,11 +202,11 @@
                     </div>
                 </div>
                 </div>
-            </div>
+            </div> --}}
             
         </div>
         <!-- why you need me -->
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-2-of-3">
                 <h3 class="heading-tertiary u-margin-bottom-small why-should-i">A short description of the hard copy</h3>
 
@@ -200,7 +268,7 @@
                     </div>
             </div>
         </div>
-        
+         --}}
 
                     
                 
