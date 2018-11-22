@@ -48,7 +48,10 @@
                 $book = $bookData[0]; 
                 $bookImage = $bookData[1];
                 $request = $bookData[2];
+                $shipping_address = $bookData[3];
+
             @endphp
+            
                 
             
         {{-- {{ $book->id }}
@@ -80,7 +83,7 @@
                         
                         <a href="#popup{{ $r_id }}" class="btn-items .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i> On Exchange</a>
                         <a href="#" class="btn-items .u-margin-btn  "> <i class=" icon fab fa-angellist"> &nbsp;</i>suggest book</a>
-                        <a href="{{ route('user-edit-book', ['title'=>$book->title, 'id'=>$book->id]) }}" class="btn-items .u-margin-btn  "> <i class=" icon fas fa-edit"> &nbsp;</i>edit book</a>
+                        <a href="#shipping{{ $r_id }}" class="btn-items .u-margin-btn  "> <i class=" icon fas fa-edit"> &nbsp;</i>shipping</a>
                         <a href="{{ route('book-delete', ['book' => $book->id]) }}" class=""> <i class="icontrash icon fas fa-trash-alt" style="font-size:18px;"> &nbsp;</i></a>
                
                     </div>
@@ -116,6 +119,57 @@
                 </div>
             </div>
             {{-- popup --}}
+
+
+            {{-- popup --}}
+        <div class="popup" id="shipping{{ $r_id }}">
+            <div class="popup__content">
+                <div class="popup__left">
+                    <div style="">
+                        <img src="{{ asset('images/'.$shipping_address->image) }}" class="">
+                    </div>
+
+                </div>
+                <div class="popup__right">
+                    <h2 class="heading-secondary u-margin-bottom-small tab_port"> Available Friends</h2> 
+                    <table>
+                        <tr>
+                            <th style="width:50px">Name</th>
+                            <th style="width:50px">{{ $shipping_address->fname }} {{ $shipping_address->lname }}</th>
+                        </tr>
+                        <tr>
+                            <th style="width:50px">Email</th>
+                            <th style="width:50px">{{ $shipping_address->email }}</th>
+                        </tr>
+                        <tr>
+                            <th style="width:50px">Cell no:</th>
+                            <th style="width:50px">{{ $shipping_address->phone_no }}</th>
+                        </tr>
+                        <tr>
+                            <th style="width:50px">Address</th>
+                            <th style="width:50px">{{ $shipping_address->address }}</th>
+                        </tr>
+                        <tr>
+                            <th style="width:50px">Postal Code</th>
+                            <th style="width:50px">{{ $shipping_address->postal_code }}</th>
+                        </tr>
+                        <tr>
+                            <th style="width:50px">City</th>
+                            <th style="width:50px">{{ $shipping_address->city }}</th>
+                        </tr>
+                        <tr>
+                            <th style="width:50px">District</th>
+                            <th style="width:50px">{{ $shipping_address->district }}</th>
+                        </tr>
+                        <tr>
+                            <th style="width:50px">Country</th>
+                            <th style="width:50px">{{ $shipping_address->country }}</th>
+                        </tr>                                  
+                     </table>                  
+                </div>
+            </div>
+        </div>
+        {{-- popup --}}
         @endforeach
  
                             
