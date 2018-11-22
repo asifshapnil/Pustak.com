@@ -21,12 +21,12 @@
        <div class="col-1-of-3">
                    
            <div class="row">
-               <div class="profile">
-                   <figure class="profile__shape">
-                       <img src="{{ asset('images/paul-schafer.jpg') }}" alt="person on a tour" class="profile__img">
-                       <figcaption class="profile__caption">Jack Wilson </figcaption>
-                    </figure>
-                </div>
+                <div class="profile">
+                        <figure class="profile__shape">
+                            <img src="{{ asset('images/'.$profile->image) }}" alt="person on a tour" class="profile__img">
+                            <figcaption class="profile__caption">{{ $profile->fname }} {{ $profile->fname }} </figcaption>
+                         </figure>
+                     </div>
             </div> 
             <div class="pro">
                <a href="{{ route('add-new-book') }}" class="profile-button .u-margin-btn  "> <i class=" icon fas fa-upload"> &nbsp;</i>upload Book</a>

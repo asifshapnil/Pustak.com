@@ -7,6 +7,17 @@
    
 
   <section class="section-profile" >
+      <input type="hidden" id="fname" value="{{ $profile->fname ? 1:0 }}">
+      <input type="hidden" id="lname" value="{{ $profile->lname ? 1:0 }}">
+      <input type="hidden" id="image" value="{{ $profile->image ? 1:0 }}">
+      <input type="hidden" id="phone_no" value="{{ $profile->phone_no ? 1:0 }}">
+      <input type="hidden" id="address" value="{{ $profile->address ? 1:0 }}">
+      <input type="hidden" id="postal_code" value="{{ $profile->postal_code ? 1:0 }}">
+      <input type="hidden" id="city" value="{{ $profile->city ? 1:0 }}">
+      <input type="hidden" id="district" value="{{ $profile->district ? 1:0 }}">
+      <input type="hidden" id="country" value="{{ $profile->country ? 1:0 }}">
+
+
     <div class=" profile_nav">
         <div class=" nav_items">
             <a href="" class="items">MyPage</a>
@@ -23,8 +34,8 @@
            <div class="row">
                <div class="profile">
                    <figure class="profile__shape">
-                       <img src="{{ asset('images/paul-schafer.jpg') }}" alt="person on a tour" class="profile__img">
-                       <figcaption class="profile__caption">Jack Wilson </figcaption>
+                       <img src="{{ asset('images/'.$profile->image) }}" alt="person on a tour" class="profile__img">
+                       <figcaption class="profile__caption">{{ $profile->fname }} {{ $profile->lname }}</figcaption>
                     </figure>
                 </div>
             </div> 
@@ -96,18 +107,41 @@
     </div>
 
 </section>
-        
+ 
 
+  @include('users.layouts.profileUpdate')
+@endsection
+
+@section('custom_js')
+<script type="text/javascript">
+    $(window).on('load',function(){
+        var check = 1;
+        if ($('#image').val() == 0) {
+            var check = 0;
+        }
+        if ($('#phone_no').val() == 0) {
+            var check = 0;
+        }
+        if ($('#address').val() == 0) {
+            var check = 0;
+        }
+        if ($('#postal_code').val() == 0) {
+            var check = 0;
+        }
+        if ($('#city').val() == 0) {
+            var check = 0;
+        }
+        if ($('#district').val() == 0) {
+            var check = 0;
+        }
+        if ($('#country').val() == 0) {
+            var check = 0;
+        }
+        if (check == 0) {
+            document.location.replace('/user/my-page/#profile');
+        }
             
+    });
+</script>
 
-
-   
-
-
-
-    
-     
-  
-
-  
 @endsection

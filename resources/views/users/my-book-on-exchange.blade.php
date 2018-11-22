@@ -21,12 +21,12 @@
        <div class="col-1-of-3">
                    
            <div class="row">
-               <div class="profile">
-                   <figure class="profile__shape">
-                       <img src="{{ asset('images/paul-schafer.jpg') }}" alt="person on a tour" class="profile__img">
-                       <figcaption class="profile__caption">Jack Wilson </figcaption>
-                    </figure>
-                </div>
+                <div class="profile">
+                        <figure class="profile__shape">
+                            <img src="{{ asset('images/'.$profile->image) }}" alt="person on a tour" class="profile__img">
+                            <figcaption class="profile__caption">{{ $profile->fname }} {{ $profile->fname }} </figcaption>
+                         </figure>
+                     </div>
             </div> 
             <div class="pro">
                <a href="{{ route('add-new-book') }}" class="profile-button .u-margin-btn  "> <i class=" icon fas fa-upload"> &nbsp;</i>upload Book</a>
@@ -135,35 +135,35 @@
                     <table>
                         <tr>
                             <th style="width:50px">Name</th>
-                            <th style="width:50px">{{ $shipping_address->fname }} {{ $shipping_address->lname }}</th>
+                            <th>{{ $shipping_address->fname }} {{ $shipping_address->lname }}</th>
                         </tr>
                         <tr>
                             <th style="width:50px">Email</th>
-                            <th style="width:50px">{{ $shipping_address->email }}</th>
+                            <th>{{ $shipping_address->email }}</th>
                         </tr>
                         <tr>
                             <th style="width:50px">Cell no:</th>
-                            <th style="width:50px">{{ $shipping_address->phone_no }}</th>
+                            <th>{{ $shipping_address->phone_no }}</th>
                         </tr>
                         <tr>
                             <th style="width:50px">Address</th>
-                            <th style="width:50px">{{ $shipping_address->address }}</th>
+                            <th>{{ $shipping_address->address }}</th>
                         </tr>
                         <tr>
                             <th style="width:50px">Postal Code</th>
-                            <th style="width:50px">{{ $shipping_address->postal_code }}</th>
+                            <th>{{ $shipping_address->postal_code }}</th>
                         </tr>
                         <tr>
                             <th style="width:50px">City</th>
-                            <th style="width:50px">{{ $shipping_address->city }}</th>
+                            <th>{{ $shipping_address->city }}</th>
                         </tr>
                         <tr>
                             <th style="width:50px">District</th>
-                            <th style="width:50px">{{ $shipping_address->district }}</th>
+                            <th>{{ $shipping_address->district }}</th>
                         </tr>
                         <tr>
                             <th style="width:50px">Country</th>
-                            <th style="width:50px">{{ $shipping_address->country }}</th>
+                            <th>{{ $shipping_address->country }}</th>
                         </tr>                                  
                      </table>                  
                 </div>

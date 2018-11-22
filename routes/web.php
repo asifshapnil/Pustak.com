@@ -47,9 +47,7 @@ Route::middleware('auth')->prefix('user')->group(function(){
   Route::post('/my-books-requests', 'User\ExchangeController@storeDecission')->name('store-decission');
   Route::get('/my-exchange-log', 'User\ProfileController@exchangeLog')->name('exchange-log');
   Route::get('/my-books-on-exchange', 'User\ProfileController@bookOnExchange')->name('book-on-exchange');
-
-
-
+  Route::post('/my-page', 'User\ProfileController@storeProfile')->name('store-profile');
 
 });
 

@@ -23,8 +23,8 @@
            <div class="row">
                <div class="profile">
                    <figure class="profile__shape">
-                       <img src="{{ asset('images/paul-schafer.jpg') }}" alt="person on a tour" class="profile__img">
-                       <figcaption class="profile__caption">Jack Wilson </figcaption>
+                       <img src="{{ asset('images/'.$profile->image) }}" alt="person on a tour" class="profile__img">
+                       <figcaption class="profile__caption">{{ $profile->fname }} {{ $profile->fname }} </figcaption>
                     </figure>
                 </div>
             </div> 

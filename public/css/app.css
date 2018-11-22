@@ -10880,6 +10880,7 @@ body {
   visibility: hidden;
   -webkit-transition: all .3s;
   transition: all .3s;
+  overflow: auto;
 }
 
 .popup__content {

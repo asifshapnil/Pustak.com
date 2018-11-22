@@ -27,6 +27,8 @@ class ProfileController extends Controller
       ->select('userbooksdetails.*', 'books.title', 'categories.category_name', 'writers.writers_name' )
       ->where('userbooksdetails.user_id', '=', Auth::user()->id)
       ->get();
+      $data['profile'] = User::Join('profile', 'users.id', '=', 'profile.user_id')
+      ->where('users.id', '=',  Auth::user()->id)->first();
 
       $book_data = array();
       $i = 0;
@@ -51,17 +53,6 @@ class ProfileController extends Controller
       return view('users.myProfile', $data);
     }
 
-    public function get_book_by_category(Request $request){
-      $data['allBooks'] = UserBooksDetail::Join('books', 'userbooksdetails.book_id', '=', 'books.id')
-      ->join('categories', 'categories.id', '=', 'books.category_id')
-      ->join('writers', 'writers.id', '=', 'books.writer_id')
-      ->select('userbooksdetails.*', 'books.title', 'categories.category_name', 'writers.writers_name' )
-      ->where('categories.category_name', '=', $request->cat)
-      ->paginate(6);
-
-      return view('front.home', $data);
-
-    }
 
     public function get_book_requests(Request $request){
       $getUser = Exchange::where('to_id', Auth::user()->id)->where('status', '0')->get();
@@ -92,6 +83,8 @@ class ProfileController extends Controller
       }
 
       $data['book'] = $book_data;
+      $data['profile'] = User::Join('profile', 'users.id', '=', 'profile.user_id')
+      ->where('users.id', '=',  Auth::user()->id)->first();
       
       return view('users.my-books-requests', $data);
     }
@@ -126,6 +119,8 @@ class ProfileController extends Controller
       }
 
       $data['book'] = $book_data;
+      $data['profile'] = User::Join('profile', 'users.id', '=', 'profile.user_id')
+      ->where('users.id', '=',  Auth::user()->id)->first();
       return view('users.my-exchange-log', $data);
       
 
@@ -165,7 +160,33 @@ class ProfileController extends Controller
 
         $i++;
       }
+      
       $data['book'] = $book_data;
+      $data['profile'] = User::Join('profile', 'users.id', '=', 'profile.user_id')
+      ->where('users.id', '=',  Auth::user()->id)->first();
       return view('users.my-book-on-exchange', $data);
+    }
+
+    public function storeProfile(Request $request){
+      $profile = Profile::where('user_id', Auth::user()->id)->first();
+
+      $profile->address = $request->address;
+      $profile->city = $request->city;
+      $profile->district = $request->district;
+      $profile->postal_code = $request->postal_code;
+      $profile->country = $request->country;
+      $profile->phone_no = $request->phone_no;
+
+      if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $filename = time() . "." . $image->getClientOriginalExtension();
+        $location = public_path('images/' . $filename);
+        $img = Image::make($image);
+        $img->save($location );
+        $profile->image = $filename;
+      }
+
+      $profile->save();
+      return redirect()->back();
     }
 }
