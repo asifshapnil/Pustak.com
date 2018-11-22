@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
+use App\Profile;
+
 
 
 class AuthController extends Controller
@@ -25,6 +27,11 @@ class AuthController extends Controller
     $user->password = bcrypt($request->password);
 
     $user->save();
+
+    $profile = new Profile();
+    $profile->user_id = $user->id;
+    $profile->save();
+
 
     return redirect()->route('front-signIn');
 }

@@ -10883,6 +10883,7 @@ body {
   visibility: hidden;
   -webkit-transition: all .3s;
   transition: all .3s;
+  overflow: auto;
 }
 
 .popup__content {
@@ -11980,6 +11981,14 @@ a:hover {
 .page-link,
 .page-link:hover {
   color: #6B1717;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
 }
 
 fieldset,

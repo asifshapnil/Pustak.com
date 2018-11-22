@@ -8,25 +8,25 @@
 
   <section class="section-profile" >
     <div class=" profile_nav">
-        <div class=" nav_items">
-            <a href="" class="items">MyPage</a>
-            <a href="{{ route('book-requests') }}" class="items">My Exchange Offers</a>
-            <a href="{{ route('exchange-log') }}" class="items">My Exchange Requests</a>
-            <a href="{{ route('book-on-exchange') }}" class="items">My Books On Exchange</a>
+            <div class=" nav_items">
+                    <a href="" class="items">MyPage</a>
+                    <a href="{{ route('book-requests') }}" class="items">My Exchange Offers</a>
+                    <a href="{{ route('exchange-log') }}" class="items">My Exchange Requests</a>
+                    <a href="{{ route('book-on-exchange') }}" class="items">My Books On Exchange</a>
 
-            <a href="" class="items">books</a>
-        </div>
+                    <a href="" class="items">books</a>
+                </div>
     </div>
    <div class="row"> 
        <div class="col-1-of-3">
                    
            <div class="row">
-                <div class="profile">
-                        <figure class="profile__shape">
-                            <img src="{{ asset('images/'.$profile->image) }}" alt="person on a tour" class="profile__img">
-                            <figcaption class="profile__caption">{{ $profile->fname }} {{ $profile->fname }} </figcaption>
-                         </figure>
-                     </div>
+               <div class="profile">
+                   <figure class="profile__shape">
+                       <img src="{{ asset('images/'.$profile->image) }}" alt="person on a tour" class="profile__img">
+                       <figcaption class="profile__caption">{{ $profile->fname }} {{ $profile->fname }} </figcaption>
+                    </figure>
+                </div>
             </div> 
             <div class="pro">
                <a href="{{ route('add-new-book') }}" class="profile-button .u-margin-btn  "> <i class=" icon fas fa-upload"> &nbsp;</i>upload Book</a>
@@ -53,7 +53,8 @@
             
         {{-- {{ $book->id }}
         {{ $bookImage }} --}}
-        <h1 class="pt-5 mr-md-5">Requests for my books </h1>
+        <h1 class="pt-5 mr-md-5"> Accepted offers I requested </h1>
+
         <div class="books">
             <div class="mybook">
                 <img class="book-image" src="{{ asset('images/'.$bookImage) }}" alt="">
@@ -78,11 +79,10 @@
                            @endif
                         @endforeach
                         
-                        <a href="#popup{{ $r_id }}" class="btn-items .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i> offers</a>
+                        <a href="#popup{{ $r_id }}" class="btn-items .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i>my offers was</a>
                         <a href="#" class="btn-items .u-margin-btn  "> <i class=" icon fab fa-angellist"> &nbsp;</i>suggest book</a>
-                        <a href="{{ route('user-edit-book', ['title'=>$book->title, 'id'=>$book->id]) }}" class="btn-items .u-margin-btn  "> <i class=" icon fas fa-edit"> &nbsp;</i>edit book</a>
+                        <a href="#ratebook" class="btn-items .u-margin-btn  "> <i class=" icon fas fa-edit"> &nbsp;</i>rate book</a>
                         <a href="{{ route('book-delete', ['book' => $book->id]) }}" class=""> <i class="icontrash icon fas fa-trash-alt" style="font-size:18px;"> &nbsp;</i></a>
-               
                     </div>
                 </div>
             </div>
