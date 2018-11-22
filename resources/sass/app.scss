@@ -283,14 +283,20 @@ body {
     .composition__photo--p1 {
       left: 0;
       top: -2rem; 
+      width: 50%;
+
     }
     .composition__photo--p2 {
       right: 0;
       top: 2rem; 
+      width: 44%;
+
     }
     .composition__photo--p3 {
       left: 20%;
-      top: 10rem; 
+      top: 10rem;
+      width: 50%;
+ 
     }
     .composition__photo:hover {
       outline: 1.5rem solid #6b1717;
@@ -1193,8 +1199,8 @@ margin-top: -20px;
 }
 
 .book-image {
-  width: 50%;
-  height: 100%;
+  width: 36%;
+  height: 50%;
   padding: 18px 6px 0px 0px;
 }
 
