@@ -16,7 +16,7 @@ class CreateExchangeDetailsTable extends Migration
         Schema::create('exchangeDetails', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('exchange_id');
-            $table->integer('exchangable_book_id');
+            $table->integer('user_books_detail_id');
             $table->integer('qty');
 
             $table->timestamps();

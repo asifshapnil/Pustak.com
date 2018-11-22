@@ -11980,6 +11980,14 @@ a:hover {
   color: #6B1717;
 }
 
+.hidden {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
+}
+
 fieldset,
 label {
   margin: 0;

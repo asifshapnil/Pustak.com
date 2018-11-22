@@ -283,9 +283,11 @@
 @endsection
 
 @section('custom_js')
-    <script type="text/javascript">
-        $('document').on('click', '#request', function(){
-            $('#my-books').modal('show');
-        })
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".checkbox").on('change',function() {
+           alert('dfgdf');
+        });
+    });
     </script>
 @endsection
