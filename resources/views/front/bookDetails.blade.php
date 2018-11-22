@@ -286,8 +286,22 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $(".checkbox").on('change',function() {
-           alert('dfgdf');
+            $(this).parent('.s-p').parent('.f-p').children('.g-p').find('.qtyDiv').removeClass('hidden');
+        
         });
+    });
+
+    $('.decrease_btn').on('click', function(){
+        var qty = parseInt($(this).parent('.qtyDiv').find('.qtyValue').val());
+        if(qty > 1){
+            $(this).parent('.qtyDiv').find('.qtyValue').val(qty-1);
+        }
+    });
+
+     $('.increase_btn').on('click', function(){
+        var qty = parseInt($(this).parent('.qtyDiv').find('.qtyValue').val());
+            $(this).parent('.qtyDiv').find('.qtyValue').val(qty+1);
+    
     });
     </script>
 @endsection
