@@ -111,8 +111,10 @@ class BookController extends Controller
     }
 
     public function delete(Request $request){
-      $getBook = UserBooksDetail::where('id', $request->book)->delete();
-      $getImage = BookImage::where('user_books_detail_id', $request->book)->delete();
+      $getBook = UserBooksDetail::where('id', $request->book)->first();
+      $getBook->status = 0;
+      $getBook->save();
+      // $getImage = BookImage::where('user_books_detail_id', $request->book)->first();
       
       return redirect()->back();
 

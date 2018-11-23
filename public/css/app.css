@@ -12072,3 +12072,12 @@ label {
   top: 53%;
 }
 
+.active {
+  border-bottom: 4px solid #6B1717;
+  padding-bottom: 10px;
+}
+
+.active:hover {
+  padding-bottom: 10px;
+}
+

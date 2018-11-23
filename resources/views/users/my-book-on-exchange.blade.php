@@ -7,16 +7,8 @@
    
 
   <section class="section-profile" >
-    <div class=" profile_nav">
-        <div class=" nav_items">
-            <a href="" class="items">MyPage</a>
-            <a href="{{ route('book-requests') }}" class="items">My Exchange Offers</a>
-            <a href="{{ route('exchange-log') }}" class="items">My Exchange Requests</a>
-            <a href="{{ route('book-on-exchange') }}" class="items">My Books On Exchange</a>
-
-            <a href="" class="items">books</a>
-        </div>
-    </div>
+   @include('users.layouts.profile-tab')
+    
    <div class="row"> 
        <div class="col-1-of-3">
                    
@@ -43,6 +35,8 @@
         </div>
 <!-- right side -->
     <div class="col-2-of-3" >
+            <h1 class="pt-5 mr-md-5">My books on exchange</h1>
+
         @foreach ($book as $bookData)
              @php  
                 $book = $bookData[0]; 
@@ -56,7 +50,6 @@
             
         {{-- {{ $book->id }}
         {{ $bookImage }} --}}
-        <h1 class="pt-5 mr-md-5">My books on exchange</h1>
         <div class="books">
             <div class="mybook">
                 <img class="book-image" src="{{ asset('images/'.$bookImage) }}" alt="">
@@ -84,7 +77,7 @@
                         <a href="#popup{{ $r_id }}" class="btn-items .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i> On Exchange</a>
                         <a href="#" class="btn-items .u-margin-btn  "> <i class=" icon fab fa-angellist"> &nbsp;</i>suggest book</a>
                         <a href="#shipping{{ $r_id }}" class="btn-items .u-margin-btn  "> <i class=" icon fas fa-edit"> &nbsp;</i>shipping</a>
-                        <a href="{{ route('book-delete', ['book' => $book->id]) }}" class=""> <i class="icontrash icon fas fa-trash-alt" style="font-size:18px;"> &nbsp;</i></a>
+                        {{-- <a href="{{ route('book-delete', ['book' => $book->id]) }}" class=""> <i class="icontrash icon fas fa-trash-alt" style="font-size:18px;"> &nbsp;</i></a> --}}
                
                     </div>
                 </div>
@@ -111,7 +104,6 @@
                            
                         </table>
                         <div class="popup__close p-5 offset-md-5">
-                                <button type="submit" class="btn btn-md btn-text .u-margin-btn">Accept</button>
                             
                             </div>                   
                         </form>
@@ -125,11 +117,20 @@
         <div class="popup" id="shipping{{ $r_id }}">
             <div class="popup__content">
                 <div class="popup__left">
-                    <div style="">
-                        <img src="{{ asset('images/'.$shipping_address->image) }}" class="">
+                    <div class="row ">
+                        <div class="offset-md-6 mt-md-3">
+                            <div class="profile">
+                                <figure class="profile__shape">
+                                    <img src="{{ asset('images/'.$shipping_address->image) }}" alt="person on a tour" class="profile__img">
+                                    <figcaption class="profile__caption">{{ $shipping_address->fname }} {{ $shipping_address->lname }}</figcaption>
+                                </figure>
+                             </div>
+                        </div>
                     </div>
-
                 </div>
+
+
+
                 <div class="popup__right">
                     <h2 class="heading-secondary u-margin-bottom-small tab_port"> Available Friends</h2> 
                     <table>
