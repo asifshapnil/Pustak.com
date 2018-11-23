@@ -119,4 +119,5 @@ class BookController extends Controller
       return redirect()->back();
 
     }
+    // #b4b0b0
 }
