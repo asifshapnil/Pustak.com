@@ -33,7 +33,7 @@
                     @endif
                 </table>
                 <div class="popup__close p-5 offset-md-5">
-                    <button type="submit" class="btn btn-md btn-text .u-margin-btn">Send Offer</button>
+                    <button type="submit" class="btnc btn-md btn-text .u-margin-btn">Send Offer</button>
                 </div>
             </form>
 
