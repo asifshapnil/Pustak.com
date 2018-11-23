@@ -31,6 +31,7 @@ body {
   font-size: 1.6rem;
   line-height: 1.7;
   color: #777;
+  background-color: #fff;
  }
 
 /* hero text */
@@ -80,10 +81,10 @@ body {
 
 .details {
   padding-left: 3rem;
-  background-color: #efefef;
+  // background-color: #efefef;
   margin-top: -19px;
-  padding-bottom: 3rem;
-  margin-right: 10rem;
+  padding-bottom: 4rem;
+  margin-right: 6rem;
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
  }
@@ -214,6 +215,9 @@ body {
   background-color: #fff;
   color: #777;
  }
+ a:hover {
+  color: #777;
+}
   .btn--white::after {
     background-color: #fff;
    }
@@ -317,12 +321,11 @@ body {
  }
 
 .why-should-i {
-  background-color: #efefef;
   padding: 1rem;
   width: 56%;
   padding-left: 5rem;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
- }
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
 
 .text-details {
   font-size: 18px;
@@ -390,7 +393,16 @@ body {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.25);
     transition: all .5s .2s;
-   }
+   } 
+  //  new popup
+  .profilepopup { 
+    
+    top: 100%;
+    left: 50%;
+    margin-bottom: 3rem;
+    
+   } 
+  // end new popup
   .popup__left {
     width: 33.333333%;
     display: table-cell;
@@ -641,8 +653,7 @@ tr:nth-child(even) {
 .story {
   width: 65%;
   margin: 0 auto;
-  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
-  background-color: #efefef;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   border-radius: 3px;
   font-size: 1.6rem;
  }
@@ -807,7 +818,8 @@ tr:nth-child(even) {
  }
 
 .section-new {
-  background-color: #f7f7f7;
+  // background-color: #f7f7f7;
+  background-color: #fff;
   padding: 5rem 0 5rem 0;
  }
 
@@ -830,7 +842,7 @@ tr:nth-child(even) {
    }
 
 .section-about {
-  background-color: #f7f7f7;
+  background-color: #fff;
   // padding: 20rem 0;
   margin-top: 18rem;
 
@@ -1414,6 +1426,7 @@ fieldset, label { margin: 0; padding: 0; }
       top: 53%;
     }
     
+   
   // profile-tab
       .active{
         border-bottom: 4px solid #6B1717;

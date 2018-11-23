@@ -131,7 +131,7 @@
                 <div class="col-12">
                         <div class="story">
                                 <figure class="story__shape">
-                                        <img src="img/nat-9.jpg" alt="person on a tour" class="story__img">
+                                        <img src="{{ asset('images/book2.jpg') }}" alt="person on a tour" class="story__img">
                                         <figcaption class="story__caption">Jack Wilson </figcaption>
                                     </figure>
                                 <div class="story__text">
@@ -146,7 +146,7 @@
                 <div class="col-12">
                         <div class="story">
                                 <figure class="story__shape">
-                                        <img src="img/nat-9.jpg" alt="person on a tour" class="story__img">
+                                        <img src="{{ asset('images/book2.jpg') }}" alt="person on a tour" class="story__img">
                                         <figcaption class="story__caption">Jack Wilson </figcaption>
                                     </figure>
                                 <div class="story__text">
@@ -161,7 +161,7 @@
                 <div class="col-12">
                         <div class="story">
                                 <figure class="story__shape">
-                                        <img src="img/nat-9.jpg" alt="person on a tour" class="story__img">
+                                        <img src="{{ asset('images/book2.jpg') }}" alt="person on a tour" class="story__img">
                                         <figcaption class="story__caption">Jack Wilson </figcaption>
                                     </figure>
                                 <div class="story__text">
@@ -253,7 +253,7 @@
                     <div class="row">
                         <div class="story">
                             <figure class="story__shape">
-                                    <img src="img/nat-9.jpg" alt="person on a tour" class="story__img">
+                                    <img src="{{ asset('images/book2.jpg') }}" alt="person on a tour" class="story__img">
                                     <figcaption class="story__caption">Jack Wilson </figcaption>
                                 </figure>
                             <div class="story__text">
