@@ -1,10 +1,10 @@
 
 <div class="popup" id="profile">
-        <div class="popup__content">
+        <div class="popup__content profilepopup">
             <div class="popup__left">
                 <div style="">
                     <img src="" class="">
-                </div>
+                </div> 
             </div>
             <div class="popup__right">
                 <h2 class="heading-secondary u-margin-bottom-small tab_port"> Available Friends</h2> 

@@ -10490,6 +10490,7 @@ body {
   font-size: 1.6rem;
   line-height: 1.7;
   color: #777;
+  background-color: #fff;
 }
 
 /* hero text */
@@ -10548,10 +10549,9 @@ body {
 
 .details {
   padding-left: 3rem;
-  background-color: #efefef;
   margin-top: -19px;
-  padding-bottom: 3rem;
-  margin-right: 10rem;
+  padding-bottom: 4rem;
+  margin-right: 6rem;
   border-radius: 3px;
   -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
           box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
@@ -10699,6 +10699,10 @@ body {
   color: #777;
 }
 
+a:hover {
+  color: #777;
+}
+
 .btn--white::after {
   background-color: #fff;
 }
@@ -10781,16 +10785,19 @@ body {
 .composition__photo--p1 {
   left: 0;
   top: -2rem;
+  width: 50%;
 }
 
 .composition__photo--p2 {
   right: 0;
   top: 2rem;
+  width: 44%;
 }
 
 .composition__photo--p3 {
   left: 20%;
   top: 10rem;
+  width: 50%;
 }
 
 .composition__photo:hover {
@@ -10817,12 +10824,11 @@ body {
 }
 
 .why-should-i {
-  background-color: #efefef;
   padding: 1rem;
   width: 56%;
   padding-left: 5rem;
-  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-          box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .text-details {
@@ -10901,6 +10907,12 @@ body {
           transform: translate(-50%, -50%) scale(0.25);
   -webkit-transition: all .5s .2s;
   transition: all .5s .2s;
+}
+
+.profilepopup {
+  top: 100%;
+  left: 50%;
+  margin-bottom: 3rem;
 }
 
 .popup__left {
@@ -11202,9 +11214,8 @@ tr:nth-child(even) {
 .story {
   width: 65%;
   margin: 0 auto;
-  -webkit-box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
-          box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
-  background-color: #efefef;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   border-radius: 3px;
   font-size: 1.6rem;
 }
@@ -11395,7 +11406,7 @@ tr:nth-child(even) {
 }
 
 .section-new {
-  background-color: #f7f7f7;
+  background-color: #fff;
   padding: 5rem 0 5rem 0;
 }
 
@@ -11419,7 +11430,7 @@ tr:nth-child(even) {
 }
 
 .section-about {
-  background-color: #f7f7f7;
+  background-color: #fff;
   margin-top: 18rem;
 }
 
@@ -11846,8 +11857,8 @@ a:hover {
 }
 
 .book-image {
-  width: 50%;
-  height: 100%;
+  width: 36%;
+  height: 50%;
   padding: 18px 6px 0px 0px;
 }
 
