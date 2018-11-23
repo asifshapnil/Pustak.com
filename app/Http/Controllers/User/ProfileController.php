@@ -13,6 +13,8 @@ use App\Model\Exchange;
 use App\Model\ExchangeDetails;
 use App\User;
 use App\Model\Profile;
+use App\Model\Rating;
+
 
 
 use Auth;
@@ -123,9 +125,19 @@ class ProfileController extends Controller
         $book_data[$i][3] = User::Join('profile', 'users.id', '=', 'profile.user_id')
         ->where('users.id', '=',  $book_id->to_id)->first();
 
+        $getRating = Rating::where('user_id', Auth::user()->id)
+                            ->where('user_books_detail_id', $book_id->user_books_detail_id)
+                            ->first();
+        if (empty($getRating)) {
+          $book_data[$i][4] = 0;
+        }else{
+          $book_data[$i][4] = $getRating;
+
+        }
         $i++;
       }
-
+      // dd($getRating);
+      
       $data['book'] = $book_data;
       $data['profile'] = User::Join('profile', 'users.id', '=', 'profile.user_id')
       ->where('users.id', '=',  Auth::user()->id)->first();

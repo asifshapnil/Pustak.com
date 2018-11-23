@@ -42,13 +42,16 @@
                 $bookImage = $bookData[1];
                 $request = $bookData[2];
                 $shipping_address = $bookData[3];
+                $rating = $bookData[4];
+                $myRate = 0;
+                empty($rating) ? $myRate = 0 : $myRate = $rating->ratingValue;
 
             @endphp
                 
             
         {{-- {{ $book->id }}
         {{ $bookImage }} --}}
-
+     
         <div class="books">
             <div class="mybook">
                 <img class="book-image" src="{{ asset('images/'.$bookImage) }}" alt="">
@@ -75,7 +78,7 @@
                         
                         <a href="#popup{{ $r_id }}" class="btn-items .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i>my offers was</a>
                         <a href="#shipping{{ $r_id }}" class="btn-items .u-margin-btn  "> <i class=" icon fas fa-edit"> &nbsp;</i>shipping</a>
-                        <a href="#ratebook{{ $r_id }}" class="btn-items .u-margin-btn  "> <i class=" icon fas fa-edit"> &nbsp;</i>rate book</a>
+                        <a href="#ratebook{{ $r_id }}" class="btn-items .u-margin-btn openRateModal" data-my-rate = {{ $myRate }}> <i class=" icon fas fa-edit"> &nbsp;</i>rate book</a>
                         {{-- <a href="{{ route('book-delete', ['book' => $book->id]) }}" class=""> <i class="icontrash icon fas fa-trash-alt" style="font-size:18px;"> &nbsp;</i></a> --}}
                     </div>
                 </div>
@@ -100,7 +103,13 @@
             $(document).on('click', '.rateBtn', function(){
                 var getValue = $(this).attr('data-value');
                 $(this).parent('.btnParent').parent('.parentCard').children('.parent-form').find('.rateValue').val(getValue);
-            })
-        })
+            });
+
+
+            $(document).on('click', '.openRateModal', function(){
+                var myRate = $(this).attr('data-my-rate');
+                alert(myRate);
+            });
+        });
     </script>
 @endsection

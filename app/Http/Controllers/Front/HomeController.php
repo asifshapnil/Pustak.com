@@ -79,6 +79,20 @@ class HomeController extends Controller
         if (isset($request->exchange_id)) {
             $data['exchangeId'] = $request->exchange_id;
         }
+
+        $getRating = UserBooksDetail::Join('ratings', 'ratings.user_books_detail_id', '=', 'userbooksdetails.id')
+                    ->where('userbooksdetails.id', '=', $request->id)->get();
+
+        if (!$getRating->isEmpty()) {
+            $rateCount  = $getRating->count();
+            $totalRate = 0;
+             foreach ($getRating as $rate) {
+                 $totalRate += $rate->ratingValue;
+             }
+            
+             $data['avg'] = ceil($totalRate / $rateCount);
+        }
+        //  dd($avg);
         return view('front.bookDetails', $data);
             
     }
