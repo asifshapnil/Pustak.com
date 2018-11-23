@@ -4,11 +4,11 @@
                 <div class="row">
                     <div class=" parentCard">
                         <div class="row btnParent">
-                            <button type="button" class="rateBtn btn btn-md text-white p-3 "  data-value = "1">1 <i class="fa fa-star "></i></button>
-                            <button type="button" class="rateBtn btn btn-md text-white p-3"   data-value = "2">2 <i class="fa fa-star "></i></button>
-                            <button type="button" class="rateBtn  btn btn-md text-white p-3"  data-value = "3">3 <i class="fa fa-star "></i></button>
-                            <button type="button" class="rateBtn  btn btn-md text-white p-3"  data-value = "4">4 <i class="fa fa-star "></i></button>
-                            <button type="button" class="rateBtn  btn btn-md text-white p-3"  data-value = "5">5 <i class="fa fa-star "></i></button>
+                            <button type="button" class="rateBtn one btn btn-md text-white p-3 "  data-value = "1">1 <i class="fa fa-star "></i></button>
+                            <button type="button" class="rateBtn two btn btn-md text-white p-3"   data-value = "2">2 <i class="fa fa-star "></i></button>
+                            <button type="button" class="rateBtn three  btn btn-md text-white p-3"  data-value = "3">3 <i class="fa fa-star "></i></button>
+                            <button type="button" class="rateBtn four  btn btn-md text-white p-3"  data-value = "4">4 <i class="fa fa-star "></i></button>
+                            <button type="button" class="rateBtn five  btn btn-md text-white p-3"  data-value = "5">5 <i class="fa fa-star "></i></button>
                         </div>
                          <form action="{{ route('store-rating') }}" class="form parent-form" method="post">
                             {{ csrf_field() }}

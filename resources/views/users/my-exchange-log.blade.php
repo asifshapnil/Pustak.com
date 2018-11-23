@@ -44,7 +44,7 @@
                 $shipping_address = $bookData[3];
                 $rating = $bookData[4];
                 $myRate = 0;
-                empty($rating) ? $myRate = 0 : $myRate = $rating->ratingValue;
+                empty($rating) ? $myRate = 0 : $myRate = round($rating->ratingValue);
 
             @endphp
                 
@@ -103,12 +103,51 @@
             $(document).on('click', '.rateBtn', function(){
                 var getValue = $(this).attr('data-value');
                 $(this).parent('.btnParent').parent('.parentCard').children('.parent-form').find('.rateValue').val(getValue);
+                $(this).addClass('activeRate');
+            }).on('blur', '.rateBtn', function(){
+                $(this).removeClass('activeRate');
             });
 
 
             $(document).on('click', '.openRateModal', function(){
                 var myRate = $(this).attr('data-my-rate');
-                alert(myRate);
+                
+                if (myRate == 1) {
+                    $('.one').addClass('activeRate');
+                    $('.two').removeClass('activeRate');
+                    $('.three').removeClass('activeRate');
+                    $('.four').removeClass('activeRate');
+                    $('.five').removeClass('activeRate');
+                }
+                else if(myRate == 2){
+                    $('.one').removeClass('activeRate');
+                    $('.two').addClass('activeRate');
+                    $('.three').removeClass('activeRate');
+                    $('.four').removeClass('activeRate');
+                    $('.five').removeClass('activeRate');
+                }
+                else if(myRate == 3){
+                    $('.one').removeClass('activeRate');
+                    $('.two').removeClass('activeRate');
+                    $('.three').addClass('activeRate');
+                    $('.four').removeClass('activeRate');
+                    $('.five').removeClass('activeRate');
+                }
+                else if(myRate == 4){
+                    $('.one').removeClass('activeRate');
+                    $('.two').removeClass('activeRate');
+                    $('.three').removeClass('activeRate');
+                    $('.four').addClass('activeRate');
+                    $('.five').removeClass('activeRate');
+                }
+                else if(myRate == 5){
+                    $('.one').removeClass('activeRate');
+                    $('.two').removeClass('activeRate');
+                    $('.three').removeClass('activeRate');
+                    $('.four').removeClass('activeRate');
+                    $('.five').addClass('activeRate');
+                }
+
             });
         });
     </script>

@@ -12048,6 +12048,11 @@ label {
   color: #6B1717;
 }
 
+.activeRate {
+  border: 4px solid #5b0b0b;
+  font-size: 25px;
+}
+
 /***** CSS Magic to Highlight Stars on Hover *****/
 
 .rating > input:checked ~ label,
