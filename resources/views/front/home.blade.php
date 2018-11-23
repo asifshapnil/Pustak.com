@@ -64,7 +64,7 @@
                              </ul>
   
                          </div>
-                           <a href="{{ route('front-book-details',['id' => $book->id] ) }}" class="btn btn--white">See now! </a>
+                           <a href="{{ route('front-book-details',['id' => $book->id] ) }}" class="btnc btn--white">See now! </a>
                        </div>
                    </div>
                </div>

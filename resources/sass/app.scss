@@ -259,6 +259,17 @@ body {
   margin-right: 16px;
 
  }
+ .btn-text{
+  font-size: 1.6rem;
+  color: #6b1717;
+  text-decoration: none;
+  display: inline-block;
+  border: 1px solid #380a0a;
+  padding: 10px;
+  transition: all .2s;
+  margin-right: 16px;
+
+ }
 
 .btn-text:hover {
   background-color: #6b1717;
@@ -684,7 +695,7 @@ tr:nth-child(even) {
     transform: translate(-50%, 20%);
     color: #fff;
     text-transform: uppercase;
-    font-size: 1.7rem;
+    font-size: 1.7rem; 
     text-align: center;
     opacity: 0;
     transition: all .5s;
@@ -1474,6 +1485,36 @@ fieldset, label { margin: 0; padding: 0; }
       // top: 600;
    }
   // profile-tab-ends
+
+
+  // rating popup 
+  .rateBtn{
+  background-color: #6B1717;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  }
+  .parentCard{
+    margin-left: 33rem;
+    }
+    .center-text{
+      margin-top: 2rem;
+      margin-left: 32rem;
+        }
+
+    .ratesubmit{
+    padding: 1rem 3rem 1rem 3rem;
+    border: 1px solid #000;
+    transition: all 0s;
+      
+    }
+    .popsubmit{
+    margin-top: -5rem;
+    margin-bottom: 4rem;
+    margin-left: 1rem;
+
+    }
+  // rating end 
 
   
    

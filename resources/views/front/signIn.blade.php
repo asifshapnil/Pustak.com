@@ -39,7 +39,7 @@
                             </div>
 
                             <div class="form__group">
-                                <button class="btn btn--green" type="submit">Log in  &rarr;</button>
+                                <button class="btnc btn--green" type="submit">Log in  &rarr;</button>
                             </div>
 
                         </form>
