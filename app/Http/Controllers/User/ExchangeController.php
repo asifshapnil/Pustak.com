@@ -44,6 +44,10 @@ class ExchangeController extends Controller
         $eDtails->status = 1;
         $eDtails->save();
 
+        $delete_other_exchange_offers_on_this_book = Exchange::where('user_books_detail_id', $eDtails->user_books_detail_id)
+                                                     ->where('status', '!=', 1)
+                                                     ->delete();
+                                                             
         $userBook = UserBooksDetail::where('id', $eDtails->user_books_detail_id)->first();
         $userBook->status = 2;
         $userBook->save();

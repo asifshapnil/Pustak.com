@@ -48,6 +48,7 @@ class ProfileController extends Controller
         $i++;
       }
       $data['book_data'] = $book_data;
+      $data['tabActive'] = 'index';
     
      
       return view('users.myProfile', $data);
@@ -74,17 +75,22 @@ class ProfileController extends Controller
           }
         }
         $book_data[$i][1] = $coverImage;
+        // dd($book_id->id);
         $book_data[$i][2] = ExchangeDetails::Join('userbooksdetails', 'userbooksdetails.id', '=', 'exchangeDetails.user_books_detail_id')
                             ->Join('books', 'books.id', '=', 'userbooksdetails.book_id')
-                            ->select('userbooksdetails.id', 'books.title', 'exchangeDetails.exchange_id', 'exchangeDetails.user_books_detail_id', 'exchangeDetails.qty')
+                            ->Join('exchange', 'exchange.id', '=', 'exchangeDetails.exchange_id')
+                            ->select('userbooksdetails.id', 'books.title', 'exchangeDetails.exchange_id', 'exchangeDetails.user_books_detail_id', 'exchangeDetails.qty', 'exchange.from_id', 'exchange.to_id')
                             ->where('exchange_id', $book_id->id)->get();
 
         $i++;
       }
-
+      // dd($book_data);
       $data['book'] = $book_data;
       $data['profile'] = User::Join('profile', 'users.id', '=', 'profile.user_id')
       ->where('users.id', '=',  Auth::user()->id)->first();
+
+      $data['tabActive'] = 'myBookRequest';
+
       
       return view('users.my-books-requests', $data);
     }
@@ -114,6 +120,8 @@ class ProfileController extends Controller
                             ->Join('books', 'books.id', '=', 'userbooksdetails.book_id')
                             ->select('userbooksdetails.id', 'books.title', 'exchangeDetails.exchange_id', 'exchangeDetails.user_books_detail_id', 'exchangeDetails.qty')
                             ->where('exchange_id', $book_id->id)->get();
+        $book_data[$i][3] = User::Join('profile', 'users.id', '=', 'profile.user_id')
+        ->where('users.id', '=',  $book_id->to_id)->first();
 
         $i++;
       }
@@ -121,6 +129,9 @@ class ProfileController extends Controller
       $data['book'] = $book_data;
       $data['profile'] = User::Join('profile', 'users.id', '=', 'profile.user_id')
       ->where('users.id', '=',  Auth::user()->id)->first();
+
+      $data['tabActive'] = 'myExchangeLog';
+
       return view('users.my-exchange-log', $data);
       
 
@@ -164,6 +175,10 @@ class ProfileController extends Controller
       $data['book'] = $book_data;
       $data['profile'] = User::Join('profile', 'users.id', '=', 'profile.user_id')
       ->where('users.id', '=',  Auth::user()->id)->first();
+
+      $data['tabActive'] = 'myBookOnExchange';
+
+
       return view('users.my-book-on-exchange', $data);
     }
 

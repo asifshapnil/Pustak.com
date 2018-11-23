@@ -18,7 +18,7 @@
                             <th>{{ $myBook->title }}</th>
                             <th style="width:50px;" class="g-p">
                                 {{-- <input type="number" name="qty[]"> --}}
-                                <div class="qtyDiv d-flex flex-row pt-5 justify-content-center hidden">
+                                <div class="qtyDiv d-flex flex-row justify-content-center hidden">
                                     <button type="button" class="px-3 py-1 align-self-end border text-center bg-light decrease_btn" data-rowid=" " data-price="">-</button>
                                     <input type="text" class="px-3 py-1 qty border align-self-start text-center qtyValue" name="qty[]" value="1" style="width:30px;">
                                     <button type="button" class="px-3 py-1 align-self-end border text-center bg-light increase_btn">+</button>

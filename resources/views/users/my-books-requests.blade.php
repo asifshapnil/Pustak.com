@@ -7,16 +7,8 @@
    
 
   <section class="section-profile" >
-    <div class=" profile_nav">
-        <div class=" nav_items">
-            <a href="" class="items">MyPage</a>
-            <a href="{{ route('book-requests') }}" class="items">My Exchange Offers</a>
-            <a href="{{ route('exchange-log') }}" class="items">My Exchange Requests</a>
-            <a href="{{ route('book-on-exchange') }}" class="items">My Books On Exchange</a>
-
-            <a href="" class="items">books</a>
-        </div>
-    </div>
+   @include('users.layouts.profile-tab')
+    
    <div class="row"> 
        <div class="col-1-of-3">
                    
@@ -43,6 +35,8 @@
         </div>
 <!-- right side -->
     <div class="col-2-of-3" >
+            <h1 class="pt-5 mr-md-5">Requests for my books </h1>
+
         @foreach ($book as $bookData)
              @php  
                 $book = $bookData[0]; 
@@ -53,7 +47,6 @@
             
         {{-- {{ $book->id }}
         {{ $bookImage }} --}}
-        <h1 class="pt-5 mr-md-5">Requests for my books </h1>
         <div class="books">
             <div class="mybook">
                 <img class="book-image" src="{{ asset('images/'.$bookImage) }}" alt="">
@@ -68,6 +61,7 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae libero a atque laborum tempore, eum ipsa tempora aspernatur omnis, repellendus quos harum blanditiis praesentium. Repudiandae tempore doloremque fugit maiores doloribus!            
                     </p> 
                     <div class="buttons">
+                        
                         @foreach ($request as $key => $item)
                            @if ($key == 0)
                             @php
@@ -80,9 +74,7 @@
                         
                         <a href="#popup{{ $r_id }}" class="btn-items .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i> offers</a>
                         <a href="#" class="btn-items .u-margin-btn  "> <i class=" icon fab fa-angellist"> &nbsp;</i>suggest book</a>
-                        <a href="{{ route('user-edit-book', ['title'=>$book->title, 'id'=>$book->id]) }}" class="btn-items .u-margin-btn  "> <i class=" icon fas fa-edit"> &nbsp;</i>edit book</a>
-                        <a href="{{ route('book-delete', ['book' => $book->id]) }}" class=""> <i class="icontrash icon fas fa-trash-alt" style="font-size:18px;"> &nbsp;</i></a>
-               
+                        <a href="{{ route('user-edit-book', ['title'=>$book->title, 'id'=>$book->id]) }}" class="btn-items .u-margin-btn  "> <i class=" icon fas fa-edit"> &nbsp;</i>edit book</a>               
                     </div>
                 </div>
             </div>
@@ -99,6 +91,7 @@
                             @foreach ($request as $exg)
                             <tr>
                                 <th style="width:50px;">
+                                    <input type="hidden" name="from_id" value="{{ $exg->from_id }}">
                                     <input type="hidden" name="exchange_id" value="{{ $exg->exchange_id }}">
                                 </th>
                                 <th><a target="_blank" href="{{ route('front-book-details',['id'=>$exg->id, 'exchange_id'=>$exg->exchange_id ]) }}">{{ $exg->title }}</a> </th>
