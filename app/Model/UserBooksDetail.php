@@ -15,6 +15,9 @@ class UserBooksDetail extends Model
   public function image(){
      return $this->hasMany('App\Model\BookImage');
   }
+  public function rating(){
+   return $this->hasMany('App\Model\Rating');
+}
   public function exchane(){
     return $this->hasMany('App\Model\Exchange');
  }

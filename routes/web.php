@@ -48,6 +48,8 @@ Route::middleware('auth')->prefix('user')->group(function(){
   Route::get('/my-exchange-log', 'User\ProfileController@exchangeLog')->name('exchange-log');
   Route::get('/my-books-on-exchange', 'User\ProfileController@bookOnExchange')->name('book-on-exchange');
   Route::post('/my-page', 'User\ProfileController@storeProfile')->name('store-profile');
+  Route::post('/my-rating', 'User\BookController@storeRating')->name('store-rating');
+
 
 });
 

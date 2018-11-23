@@ -86,12 +86,6 @@
                 @include('users.layouts.rating-popup')
         @endforeach
           
- 
-                            
-                                
-                
-
-
     </div>
 
 </section>

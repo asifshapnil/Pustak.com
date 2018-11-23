@@ -9,6 +9,8 @@ use App\Model\Writer;
 use App\Model\UserBooksDetail;
 use App\Model\Book;
 use App\Model\BookImage;
+use App\Model\Rating;
+
 use Image;
 use Auth;
 
@@ -119,5 +121,24 @@ class BookController extends Controller
       return redirect()->back();
 
     }
-    // #b4b0b0
+    
+    public function storeRating(Request $request){
+      $checkRating = Rating::where('user_id', Auth::user()->id)->where('user_books_detail_id', $request->bookId)->first();
+
+      if (empty($checkRating)) {
+  
+        $rating = new Rating();
+        $rating->user_id = Auth::user()->id;
+        $rating->user_books_detail_id = $request->bookId;
+        $rating->ratingValue = $request->rateValue;
+
+        $rating->save();
+      }else{
+
+        $checkRating->ratingValue = $request->rateValue;
+        $checkRating->save();
+      }
+      return redirect()->route('exchange-log');
+        
+    }
 }

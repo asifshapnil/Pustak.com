@@ -11,7 +11,7 @@
                             <button type="button" class="rateBtn col btn btn-md text-white p-3" style=" background-color:#6B1717;" data-value = "4">4</button>
                             <button type="button" class="rateBtn col btn btn-md text-white p-3" style=" background-color:#6B1717;" data-value = "5">5</button>
                         </div>
-                         <form action="" class="form parent-form" method="post">
+                         <form action="{{ route('store-rating') }}" class="form parent-form" method="post">
                             {{ csrf_field() }}
                             <input type="text" name="rateValue" class="rateValue">
                             <input type="text" name="bookId" class="bookId" value="{{ $book->id }}">
