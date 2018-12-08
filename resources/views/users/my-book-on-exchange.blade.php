@@ -132,7 +132,7 @@
 
 
                 <div class="popup__right">
-                    <h2 class="heading-secondary u-margin-bottom-small tab_port"> Available Friends</h2> 
+                    <h2 class="heading-secondary u-margin-bottom-small tab_port">Shipping Address</h2> 
                     <table>
                         <tr>
                             <th style="width:50px">Name</th>

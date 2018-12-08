@@ -16,29 +16,37 @@
 				<h1 class="p-4 text-white text-center form__input_other" style="background-color:#6B1717; font-size:30px;">{{ session('success') }}</h1>
 			@endif
 			<h1 class="add_title">Add Your Book</h1>
-
 			<form action="{{ route('store-new-book') }}" class="form" method="post" enctype="multipart/form-data">
 				{{ csrf_field() }}
 
 				<div class="form__group">
-						<select name="title" class="form__input_other form-control" id="Book_title">
-								<option value="1">Book Title</option>
-								<option value="2">Book Title</option>
-								<option value="3">Book Title</option>
-								<option value="4">Book Title</option>
-								<option value="5">Book Title</option>
-								<option value="6">Book Title</option>
-						</select>
-					<label for="title" class="form__label" >Book Title</label>
+					<input type="text" class="form__input_other form-control" id="Book_title" v-model="book" 
+						v-on:Keyup="getBook" value="{{ isset($bookInfo) ? $bookInfo->title : '' }}">
+					{{-- <label for="title" class="form__label" >Book Title</label> --}}
+					<div class="form__input_other " v-if="results.length" style="z-index: 99999; background:#fff; position:relative;">
+						<p v-cloak v-for="result in results">
+							
+							<a :href="'/user/get-book-info?' + 'book=' + result.id">@{{ result.title }}</a>
+							
+						</p>
+					</div>
 				</div>
-
-				
+				@if (isset($bookInfo))
+				<div class="form__group">
+					<input type="text" class="form__input_other form-control" value="{{ $bookInfo->category_name }}"  placeholder="Book Image" id="category" >
+					<label for="category" class="form__label" >Category</label>
+				</div>
+				<div class="form__group">
+					<input type="text" class="form__input_other form-control"  value="{{ $bookInfo->writers_name }}" placeholder="Book Image" id="writer" >
+					<label for="writer" class="form__label" >Writer's Name</label>
+				</div>
+				@endif
 				<div class="form__group">
 					<input type="file" class="form__input_other form-control" name="image[]" placeholder="Book Image" id="image" required>
 					<label for="image" class="form__label" >Book Image</label>
 				</div>
 				<div class="getImage"></div>
-				<button class="mb-5 btn btn-secondary text-white btn-sm add_image" type="button" style="border-radius:0px !important;"> <span class="fa fa-plus"></span> Add more image &rarr;</button>
+				<button class="mb-5 btnc btn-secondary text-white btn-sm add_image" type="button" style="border-radius:0px !important;"> <span class="fa fa-plus"></span> Add more image &rarr;</button>
 
 
 				<div class="form__group">
@@ -87,7 +95,7 @@
 
 
 				<div class="form__group">
-					<button class="btn btn--green" type="submit">Add Book &rarr;</button>
+					<button class="btnc btn--green" type="submit">Add Book &rarr;</button>
 				</div>
 
 			</form>
@@ -118,4 +126,51 @@
 
 	});
 	</script>
+
+<script type="text/javascript">
+    const app = new Vue({
+      el: '#app',
+      data: {
+		book : '',
+		results:[],
+		bookInfo: {!! $bookInfo?$bookInfo->toJson():'' !!}
+	  },
+	  mounted(){
+		  this.getMount();
+	  },
+      methods: {
+		getBook() {
+			// alert(this.book);
+			axios.post(`/user/getBooks`, {
+            	book: this.book
+          	})
+             .then((response) => {
+				 console.log(response);
+				 this.results = response.data;
+            //    alert(response);
+             })
+             .catch( function (error){
+               console.log('error');
+            })
+		},
+		getMount(){
+			if(this.bookInfo.length != 0){
+				this.book = this.bookInfo.title
+			}
+		}
+ 
+	  },
+	  watch:{
+		getBook(){
+			if(this.book.length == 0){
+				this.results = '';
+			}
+		}
+	  },
+	
+	  
+    });
+
+
+  </script>
 @endsection

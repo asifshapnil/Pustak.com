@@ -1,7 +1,7 @@
 <div class="popup" id="popup">
         <div class="popup__content">
             <div class="popup__right">
-                <h2 class="heading-secondary u-margin-bottom-small tab_port"> Available Friends</h2>
+                <h2 class="heading-secondary u-margin-bottom-small tab_port">Select from Your  Books to offer an exchange</h2>
                 <form action="{{ route('store-exchange') }}" class="form" method="post">
                         {{ csrf_field() }}
 

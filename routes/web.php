@@ -39,6 +39,10 @@ Route::middleware('auth')->prefix('user')->group(function(){
   Route::get('/edit-book/{title}/{id}', 'User\BookController@showEditPage')->name('user-edit-book');
   Route::post('/edit-book', 'User\BookController@storeEditBook')->name('store-user-edit-book');
 
+  Route::post('/getBooks', 'User\BookController@getBooks')->name('getBooks');
+  Route::get('/get-book-info', 'User\BookController@getBooksInfo');
+
+
   Route::get('/category', 'User\ProfileController@get_book_by_category')->name('book-by-category');
   Route::get('/delete', 'User\BookController@delete')->name('book-delete');
 
