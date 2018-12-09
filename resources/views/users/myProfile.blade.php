@@ -55,7 +55,7 @@
             
         {{-- {{ $book->id }}
         {{ $bookImage }} --}}
-        <div class="books">
+        <div class="books" >
             <div class="mybook">
                 <img class="book-image" src="{{ asset('images/'.$bookImage) }}" alt="">
                 <div class="description">
@@ -69,10 +69,10 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae libero a atque laborum tempore, eum ipsa tempora aspernatur omnis, repellendus quos harum blanditiis praesentium. Repudiandae tempore doloremque fugit maiores doloribus!            
                     </p> 
                     <div class="buttons">
-                        <a href="#" class="btn-items .u-margin-btn  "> <i class=" icon fab fa-angellist"> &nbsp;</i>{{ $request }} requests</a>
+                        <a href="{{ $request!=0 ? '/user/my-books-requests#'.$book->id:'' }}" class="btn-items .u-margin-btn {{ $request!=0 ? 'activeLink' : '' }}"> <i class=" icon fab fa-angellist"> &nbsp;</i>{{ $request }} requests</a>
                         <a href="#" class="btn-items .u-margin-btn  "> <i class=" icon fab fa-angellist"> &nbsp;</i>suggest book</a>
                         <a href="{{ route('user-edit-book', ['title'=>$book->title, 'id'=>$book->id]) }}" class="btn-items .u-margin-btn  "> <i class=" icon fas fa-edit"> &nbsp;</i>edit book</a>
-                        <a href="{{ route('book-delete', ['book' => $book->id]) }}" class=""> <i class="icontrash icon fas fa-trash-alt" style="font-size:18px;"> &nbsp;</i></a>
+                        <a href="{{ route('book-delete', ['book' => $book->id]) }}" class=""> <i class="icontrash icon fa fa-trash-alt" style="font-size:18px;"> &nbsp;</i></a>
             
                     </div>
                 </div>

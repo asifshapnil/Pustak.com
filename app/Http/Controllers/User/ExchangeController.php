@@ -43,12 +43,34 @@ class ExchangeController extends Controller
         $eDtails->status = 1;
         $eDtails->save();
 
+        foreach($eDtails->exchangeDetail as $eDetail){
+            $userBookOffer = UserBooksDetail::where('id', $eDetail->user_books_detail_id)->first();
+            $userBookOffer->status = 2;
+            $userBookOffer->save();
+        }
         $delete_other_exchange_offers_on_this_book = Exchange::where('user_books_detail_id', $eDtails->user_books_detail_id)
                                                      ->where('status', '!=', 1)
                                                      ->delete();
 
         $userBook = UserBooksDetail::where('id', $eDtails->user_books_detail_id)->first();
         $userBook->status = 2;
+        $userBook->save();
+        return redirect()->back();
+    }
+    public function gotBook(Request $request){
+        $eDtails = Exchange::where('id', $request->book)->first();
+        $eDtails->status = 2;
+        $eDtails->save();
+
+        foreach($eDtails->exchangeDetail as $eDetail){
+            $userBookOffer = UserBooksDetail::where('id', $eDetail->user_books_detail_id)->first();
+            $userBookOffer->status = 1;
+            $userBookOffer->save();
+        }
+
+
+        $userBook = UserBooksDetail::where('id', $eDtails->user_books_detail_id)->first();
+        $userBook->status = 1;
         $userBook->save();
         return redirect()->back();
     }

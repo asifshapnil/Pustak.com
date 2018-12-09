@@ -65,6 +65,9 @@
                 <span class="fa fa-star {{ $avg > 4 ? 'checked':'' }}"></span>
                 {{-- rating end --}}
         </div>
+        {{--  --}}
+        <div id="share"></div>
+
 
         </div>                
         </div>
@@ -306,5 +309,10 @@
             $(this).parent('.qtyDiv').find('.qtyValue').val(qty+1);
     
     });
+    </script>
+      <script type="text/javascript">
+        $("#share").jsSocials({
+            shares: ["email", "twitter", "facebook"]
+        });
     </script>
 @endsection

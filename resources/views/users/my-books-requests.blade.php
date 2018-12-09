@@ -47,7 +47,7 @@
             
         {{-- {{ $book->id }}
         {{ $bookImage }} --}}
-        <div class="books">
+        <div class="books" id="{{ $book->id }}">
             <div class="mybook">
                 <img class="book-image" src="{{ asset('images/'.$bookImage) }}" alt="">
                 <div class="description">

@@ -20,6 +20,13 @@ class BookController extends Controller
 {
     public function addNew(){
       $data['category'] = Category::all();
+      $bookInfo = [
+        'title' => '',
+        'id'    => '',
+        'category_name' => '',
+        'writers_name'  => ''
+      ];
+      $data['bookInfo'] = (object)$bookInfo;
       return view('users.newBook', $data);
     }
     public function getBooks(Request $request){
@@ -30,7 +37,7 @@ class BookController extends Controller
     public function getBooksInfo(Request $request){
       $data['bookInfo'] = Book::Join('categories', 'categories.id', '=', 'books.category_id' )
                     ->Join('writers', 'writers.id', '=', 'books.writer_id')
-                    ->select('categories.category_name', 'writers.writers_name', 'books.title')
+                    ->select('categories.category_name', 'writers.writers_name', 'books.title', 'books.id')
                     ->first();
       return view('users.newBook', $data);
     }

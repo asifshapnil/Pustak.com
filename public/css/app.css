@@ -12139,6 +12139,11 @@ label {
   margin-left: 1rem;
 }
 
+.activeLink {
+  background-color: #6B1717;
+  color: #fff !important;
+}
+
 [v-cloak] {
   display: none;
 }

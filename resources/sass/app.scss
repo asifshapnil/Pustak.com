@@ -1498,7 +1498,10 @@ fieldset, label { margin: 0; padding: 0; }
 
     }
   // rating end 
-
+    .activeLink{
+      background-color: #6B1717;
+      color: #fff !important;
+    }
 
   // vue.js 
   [v-cloak] {

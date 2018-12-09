@@ -54,6 +54,8 @@ Route::middleware('auth')->prefix('user')->group(function(){
   Route::post('/my-page', 'User\ProfileController@storeProfile')->name('store-profile');
   Route::post('/my-rating', 'User\BookController@storeRating')->name('store-rating');
 
+  Route::get('/got-my-book', 'User\ExchangeController@gotBook')->name('ex-complete');
+
 
 });
 

@@ -43,6 +43,8 @@
                 $bookImage = $bookData[1];
                 $request = $bookData[2];
                 $shipping_address = $bookData[3];
+                $ex_id = $bookData[4];
+
 
             @endphp
             
@@ -75,7 +77,7 @@
                         @endforeach
                         
                         <a href="#popup{{ $r_id }}" class="btn-items .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i> On Exchange</a>
-                        <a href="#" class="btn-items .u-margin-btn  "> <i class=" icon fab fa-angellist"> &nbsp;</i>suggest book</a>
+                        <a href="{{ route('ex-complete', ['book' => $ex_id]) }}" class="btn-items .u-margin-btn  "> <i class=" icon fab fa-angellist"> &nbsp;</i>completed</a>
                         <a href="#shipping{{ $r_id }}" class="btn-items .u-margin-btn  "> <i class=" icon fas fa-edit"> &nbsp;</i>shipping</a>
                         {{-- <a href="{{ route('book-delete', ['book' => $book->id]) }}" class=""> <i class="icontrash icon fas fa-trash-alt" style="font-size:18px;"> &nbsp;</i></a> --}}
                

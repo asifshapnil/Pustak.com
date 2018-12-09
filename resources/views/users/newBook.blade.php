@@ -8,7 +8,9 @@
 
 @section('content')
 	@include('users.layouts.nav')
-
+		@php
+		
+		@endphp
 
 	<div class="row" style="margin-top:150px;">
 		<div class="col-10 offset-md-1">
@@ -32,6 +34,9 @@
 					</div>
 				</div>
 				@if (isset($bookInfo))
+				<div class="form__group">
+					<input type="hidden" name="title" class="form__input_other form-control" value="{{ $bookInfo->id }}"  placeholder="Book Image" id="category" >
+				</div>
 				<div class="form__group">
 					<input type="text" class="form__input_other form-control" value="{{ $bookInfo->category_name }}"  placeholder="Book Image" id="category" >
 					<label for="category" class="form__label" >Category</label>
@@ -133,7 +138,7 @@
       data: {
 		book : '',
 		results:[],
-		bookInfo: {!! $bookInfo?$bookInfo->toJson():'' !!}
+		bookInfo: {!! $bookInfo?json_encode($bookInfo):'' !!}
 	  },
 	  mounted(){
 		  this.getMount();
