@@ -20,7 +20,19 @@ class BookController extends Controller
 {
     public function addNew(){
       $data['category'] = Category::all();
-      return view('users.newBook', $data)->with('finish', '2');
+      return view('users.newBook', $data);
+    }
+    public function getBooks(Request $request){
+      $query = $request->book;
+      $getBook = Book::where('title', 'LIKE', '%' .$query. '%')->get();
+      return $getBook;
+    }
+    public function getBooksInfo(Request $request){
+      $data['bookInfo'] = Book::Join('categories', 'categories.id', '=', 'books.category_id' )
+                    ->Join('writers', 'writers.id', '=', 'books.writer_id')
+                    ->select('categories.category_name', 'writers.writers_name', 'books.title')
+                    ->first();
+      return view('users.newBook', $data);
     }
     public function storeBook(Request $request){
       $userBook = new UserBooksDetail();

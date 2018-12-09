@@ -46,9 +46,15 @@
         @endif
        
         @if (isset($avg))
-            {{ $avg = $avg }}
+         @php
+             $avg = $avg
+         @endphp
+         
         @else
-            {{ $avg = 0 }}
+        @php
+             $avg = 0
+         @endphp
+           
         @endif
         <div class="star u-margin-bottom-small">
                 {{-- rating start --}}

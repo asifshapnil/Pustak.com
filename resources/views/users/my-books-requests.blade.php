@@ -83,7 +83,7 @@
         <div class="popup" id="popup{{ $r_id }}">
                 <div class="popup__content">
                     <div class="popup__right">
-                        <h2 class="heading-secondary u-margin-bottom-small tab_port"> Available Friends</h2> 
+                        <h2 class="heading-secondary u-margin-bottom-small tab_port"> Offer to you for the book </h2> 
                         <table>
                             <form action="{{ route('store-decission') }}" class="form" method="post">
                                     {{ csrf_field() }}
