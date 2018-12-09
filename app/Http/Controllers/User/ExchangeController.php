@@ -17,7 +17,9 @@ use Auth;
 
 class ExchangeController extends Controller
 {
-    public function storeExchange(Request $request){
+    public function storeExchange(Request $request)
+    {
+        //dd($request->all());
         $exchange = new Exchange();
         $exchange->from_id = Auth::user()->id;
         $exchange->to_id = $request->userId;
@@ -26,19 +28,16 @@ class ExchangeController extends Controller
 
         $exchange->save();
 
-        foreach($request->exchangableBookId as $exchangableBookId){
+        foreach($request->exchangableBookId as $key => $exchangableBookId){
             $exchangeDetails = new ExchangeDetails();
             $exchangeDetails->exchange_id = $exchange->id;
             $exchangeDetails->user_books_detail_id = $exchangableBookId;
-            $exchangeDetails->qty = 1;
-
+            $exchangeDetails->qty = $request->get('qty_'.$exchangableBookId);
             $exchangeDetails->save();
-
         }
-        
-
         return redirect()->back()->with('requested','requested');
     }
+
     public function storeDecission(Request $request){
         $eDtails = Exchange::where('id', $request->exchange_id)->first();
         $eDtails->status = 1;
@@ -47,7 +46,7 @@ class ExchangeController extends Controller
         $delete_other_exchange_offers_on_this_book = Exchange::where('user_books_detail_id', $eDtails->user_books_detail_id)
                                                      ->where('status', '!=', 1)
                                                      ->delete();
-                                                             
+
         $userBook = UserBooksDetail::where('id', $eDtails->user_books_detail_id)->first();
         $userBook->status = 2;
         $userBook->save();

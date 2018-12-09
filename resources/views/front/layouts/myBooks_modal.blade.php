@@ -20,16 +20,16 @@
                                 {{-- <input type="number" name="qty[]"> --}}
                                 <div class="qtyDiv d-flex flex-row justify-content-center hidden">
                                     <button type="button" class="px-3 py-1 align-self-end border text-center bg-light decrease_btn" data-rowid=" " data-price="">-</button>
-                                    <input type="text" class="px-3 py-1 qty border align-self-start text-center qtyValue" name="qty[]" value="1" style="width:30px;">
+                                    <input type="text" class="px-3 py-1 qty border align-self-start text-center qtyValue" name="qty_{{ $myBook->id }}" value="1" style="width:30px;">
                                     <button type="button" class="px-3 py-1 align-self-end border text-center bg-light increase_btn">+</button>
                                 </div>
-                                
+
 
                             </th>
 
                         </tr>
                     @endforeach
-                        
+
                     @endif
                 </table>
                 <div class="popup__close p-5 offset-md-5">
@@ -37,7 +37,7 @@
                 </div>
             </form>
 
-                
+
 
             </div>
         </div>
