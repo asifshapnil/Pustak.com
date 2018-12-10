@@ -180,6 +180,7 @@ class ProfileController extends Controller
         $book_data[$i][3] = User::Join('profile', 'users.id', '=', 'profile.user_id')
                             ->where('users.id', '=',  $book_id->from_id)->first();
         
+        $book_data[$i][4] = $book_id->id;
 
         $i++;
       }
