@@ -16,7 +16,21 @@
 
 
             <div class="popup__right">
-                <h2 class="heading-secondary u-margin-bottom-small tab_port"> Available Friends</h2> 
+                <h2 class="heading-secondary u-margin-bottom-small tab_port">Shipping Address</h2> 
+                <small class="offset-md-3">
+                    @if (isset($contact_status))
+                        @if ($contact_status == 'accept')
+                            <a href="{{ route('accept-contacts', ['id'=>$shipping_address->user_id]) }}" class="ml-md-2 contact">Accept</a>
+                        @elseif($contact_status == 'ReqSent')
+                            <a>Request sent</a>
+                        @elseif($contact_status == 'contact')
+                            <a>Contact</a>
+                        @else
+                            <a href="{{ route('send-req-contacts', ['id'=>$shipping_address->user_id]) }}" class="contact">Add to contacts</a>
+                        @endif                             
+                    @endif
+                
+                </small>  
                 <table>
                     <tr>
                         <th style="width:50px">Name</th>

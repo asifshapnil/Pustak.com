@@ -44,6 +44,13 @@
                 $request = $bookData[2];
                 $shipping_address = $bookData[3];
                 $ex_id = $bookData[4];
+                if (isset($bookData[5])) {
+                    $contact_status = $bookData[5];
+                }
+                if (isset($bookData[6])) {
+                    $reqSent = $bookData[6];
+                }
+
 
 
             @endphp
@@ -126,6 +133,7 @@
                                     <img src="{{ asset('images/'.$shipping_address->image) }}" alt="person on a tour" class="profile__img">
                                     <figcaption class="profile__caption">{{ $shipping_address->fname }} {{ $shipping_address->lname }}</figcaption>
                                 </figure>
+                               
                              </div>
                         </div>
                     </div>
@@ -134,7 +142,22 @@
 
 
                 <div class="popup__right">
-                    <h2 class="heading-secondary u-margin-bottom-small tab_port">Shipping Address</h2> 
+                    <h2 class="heading-secondary u-margin-bottom-small tab_port">Shipping Address                  
+                    </h2> 
+                    <small class="offset-md-3">
+                        @if (isset($contact_status))
+                            @if ($contact_status == 'accept')
+                                <a href="{{ route('accept-contacts', ['id'=>$shipping_address->user_id]) }}" class="ml-md-2 contact">Accept</a>
+                            @elseif($contact_status == 'ReqSent')
+                                <a>Request sent</a>
+                            @elseif($contact_status == 'contact')
+                                <a>Contact</a>
+                            @else
+                                <a href="{{ route('send-req-contacts', ['id'=>$shipping_address->user_id]) }}" class="ml-md-2 contact">Add to contacts</a>
+                            @endif                             
+                        @endif
+                    
+                    </small>  
                     <table>
                         <tr>
                             <th style="width:50px">Name</th>

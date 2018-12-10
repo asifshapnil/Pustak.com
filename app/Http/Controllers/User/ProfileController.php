@@ -14,6 +14,8 @@ use App\Model\ExchangeDetails;
 use App\User;
 use App\Model\Profile;
 use App\Model\Rating;
+use App\Model\Contact;
+
 
 
 
@@ -134,6 +136,33 @@ class ProfileController extends Controller
           $book_data[$i][4] = $getRating;
 
         }
+
+        $checkContact = Contact::where('contact_id', Auth::user()->id)
+        ->where('user_id', $book_id->to_id)
+        ->where('status', 0 )->first();
+          if(!empty($checkContact)){
+          $book_data[$i][5] = 'accept';
+          }else{
+            $checkContactReq = Contact::where('user_id', Auth::user()->id)
+                    ->where('contact_id', $book_id->to_id)
+                    ->where('status', 0 )->first();
+            if (!empty($checkContactReq)) {
+            $book_data[$i][5] = 'ReqSent';
+            }else{
+              $checkContactReq1 = Contact::where('user_id', Auth::user()->id)
+                    ->where('contact_id', $book_id->to_id)
+                    ->where('status', 1 )->first();
+              $checkContactReq2 = Contact::where('contact_id', Auth::user()->id)
+                    ->where('user_id', $book_id->to_id)
+                    ->where('status', 1 )->first();
+              if(!empty($checkContactReq1) || !empty($checkContactReq2)){
+                $book_data[$i][5] = 'contact';
+              }else{
+                $book_data[$i][5] = 'sendReq';
+
+              }
+            }
+        }
         $i++;
       }
       // dd($getRating);
@@ -181,6 +210,33 @@ class ProfileController extends Controller
                             ->where('users.id', '=',  $book_id->from_id)->first();
         
         $book_data[$i][4] = $book_id->id;
+        $checkContact = Contact::where('contact_id', Auth::user()->id)
+                        ->where('user_id', $book_id->from_id)
+                        ->where('status', 0 )->first();
+        if(!empty($checkContact)){
+          $book_data[$i][5] = 'accept';
+        }else{
+          $checkContactReq = Contact::where('user_id', Auth::user()->id)
+                        ->where('contact_id', $book_id->from_id)
+                        ->where('status', 0 )->first();
+          if (!empty($checkContactReq)) {
+            $book_data[$i][5] = 'ReqSent';
+          }else{
+            $checkContactReq1 = Contact::where('user_id', Auth::user()->id)
+                  ->where('contact_id', $book_id->from_id)
+                  ->where('status', 1 )->first();
+            $checkContactReq2 = Contact::where('contact_id', Auth::user()->id)
+                  ->where('user_id', $book_id->from_id)
+                  ->where('status', 1 )->first();
+            if(!empty($checkContactReq1) || !empty($checkContactReq2)){
+              $book_data[$i][5] = 'contact';
+            }else{
+              $book_data[$i][5] = 'sendReq';
+
+            }
+          }
+        }
+
 
         $i++;
       }
