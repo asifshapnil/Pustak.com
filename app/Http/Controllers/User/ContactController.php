@@ -16,6 +16,13 @@ class ContactController extends Controller
                     ->where('user_id', $request->id)->first();
         $accept->status = 1;
         $accept->save();
+        $setRecurring = new Contact();
+        $setRecurring->user_id = Auth::user()->id;
+        $setRecurring->contact_id = $request->id;
+        $setRecurring->status = 1;
+        
+        $setRecurring->save();
+
         return redirect()->route('exchange-log');
     }
     public function sendReq(Request $request){

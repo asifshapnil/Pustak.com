@@ -51,6 +51,11 @@ class ProfileController extends Controller
         $book_data[$i][1] = $coverImage;
         $i++;
       }
+
+      $data['contacts'] = Contact::where('user_id', Auth::user()->id)
+                          ->orWhere('contact_id', Auth::user()->id)
+                          ->get();
+                          
       $data['book_data'] = $book_data;
       $data['tabActive'] = 'index';
     
