@@ -30,14 +30,14 @@ class BookController extends Controller
     public function getBooksInfo(Request $request){
       $data['bookInfo'] = Book::Join('categories', 'categories.id', '=', 'books.category_id' )
                     ->Join('writers', 'writers.id', '=', 'books.writer_id')
-                    ->select('categories.category_name', 'writers.writers_name', 'books.title')
+                    ->select('categories.category_name', 'writers.writers_name', 'books.title', 'books.id')
                     ->first();
       return view('users.newBook', $data);
     }
     public function storeBook(Request $request){
       $userBook = new UserBooksDetail();
       $userBook->user_id = Auth::user()->id;
-      $userBook->book_id = $request->title;
+      $userBook->book_id = $request->book_id;
       $userBook->publisher = $request->publisher;
       $userBook->publishing_year = $request->publishing_year;
       $userBook->isbn_no = $request->isbn;
@@ -50,8 +50,8 @@ class BookController extends Controller
       $userBook->summery = $request->summery;
       $userBook->why_from_me = $request->why_from_me;
       $userBook->save();
-      
-      
+
+
       foreach ($request->image as $image) {
         if ($request->hasFile('image')) {
 
@@ -68,7 +68,7 @@ class BookController extends Controller
 
         }
       }
-  
+
 
       return redirect()->back()->with('success', 'A new book added');
     }
@@ -99,27 +99,27 @@ class BookController extends Controller
       $userBook->summery = $request->summery;
       $userBook->why_from_me = $request->why_from_me;
       $userBook->save();
-      
-      
+
+
       if($request->image){
         foreach ($request->image as $image) {
           if ($request->hasFile('image')) {
-  
+
             $filename = time() . "." . $image->getClientOriginalExtension();
             $location = public_path('images/' . $filename);
             $img = Image::make($image);
             $img->save($location );
-  
+
             $file = new BookImage;
             // $file->user_email = Auth::user()->email;
             $file->user_books_detail_id = $userBook->id;
             $file->image = $filename;
             $file->save();
-  
+
           }
         }
       }
-  
+
 
       return redirect()->back()->with('success', 'Book updated');
     }
@@ -129,16 +129,16 @@ class BookController extends Controller
       $getBook->status = 0;
       $getBook->save();
       // $getImage = BookImage::where('user_books_detail_id', $request->book)->first();
-      
+
       return redirect()->back();
 
     }
-    
+
     public function storeRating(Request $request){
       $checkRating = Rating::where('user_id', Auth::user()->id)->where('user_books_detail_id', $request->bookId)->first();
 
       if (empty($checkRating)) {
-  
+
         $rating = new Rating();
         $rating->user_id = Auth::user()->id;
         $rating->user_books_detail_id = $request->bookId;
@@ -151,6 +151,6 @@ class BookController extends Controller
         $checkRating->save();
       }
       return redirect()->route('exchange-log');
-        
+
     }
 }
