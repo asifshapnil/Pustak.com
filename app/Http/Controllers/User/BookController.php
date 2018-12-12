@@ -44,7 +44,7 @@ class BookController extends Controller
     public function storeBook(Request $request){
       $userBook = new UserBooksDetail();
       $userBook->user_id = Auth::user()->id;
-      $userBook->book_id = $request->book_id;
+      $userBook->book_id = $request->title;
       $userBook->publisher = $request->publisher;
       $userBook->publishing_year = $request->publishing_year;
       $userBook->isbn_no = $request->isbn;
