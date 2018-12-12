@@ -7,6 +7,8 @@
                 </div> 
             </div>
             <div class="popup__right">
+                    <a href="{{ route('user-my-page') }}" class="popup__close">&times;</a>
+
                 <h2 class="heading-secondary u-margin-bottom-small tab_port"> Available Friends</h2> 
                 <form action="{{ route('store-profile') }}" class="form" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}

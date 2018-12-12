@@ -1,6 +1,8 @@
 <div class="popup" id="popup{{ $r_id }}">
         <div class="popup__content">
             <div class="popup__right">
+                    <a href="{{ route('exchange-log') }}" class="popup__close">&times;</a>
+
                 <h2 class="heading-secondary u-margin-bottom-small tab_port"> Available Friends</h2> 
                 <table>
                     <form action="{{ route('store-decission') }}" class="form" method="post">

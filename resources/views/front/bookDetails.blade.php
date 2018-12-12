@@ -30,17 +30,17 @@
         
         <h3 class="heading-tertiary u-margin-bottom-medium ">ISBN No. &rarr; {{ $details->isbn_no }} </h3>
     
-        <a href="#popup" class="btn-text">request Now &rarr;</a>
+        <a href="#contacts_{{ $details->id }}" class="btn-items .u-margin-btn  "> <i class=" icon fab fa-angellist text-white"> &nbsp;</i>suggest book</a>
         @if (isset($exchangeId))
-            <a href="" disabled='disabled' class="btn-text .u-margin-btn disabled"> <i class=" icon fab fa-angellist"> &nbsp;</i>Pending</a>
+            <a href="" disabled='disabled' class="btn-text .u-margin-btn disabled"> <i class=" icon fab fa-angellist text-white"> &nbsp;</i>Pending</a>
         @else 
             @if (session('requested'))
-                <a href="" disabled class="btn-text .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i>Requested</a>
+                <a href="" disabled class="btn-text .u-margin-btn"> <i class=" icon fab fa-angellist text-white"> &nbsp;</i>Requested</a>
             @else
                 @if (Auth::check())
-                <a href="#popup" class="btn-text .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i>Request book</a>
+                <a href="#popup" class="btn-text .u-margin-btn"> <i class=" icon fab fa-angellist text-white"> &nbsp;</i>Request book</a>
                 @else
-                    <a href="{{ route('front-signIn', ['id'=>$details->id]) }}" class="btn-text .u-margin-btn"> <i class=" icon fab fa-angellist"> &nbsp;</i>Request book</a>
+                    <a href="{{ route('front-signIn', ['id'=>$details->id]) }}" class="btn-text .u-margin-btn text-white"> <i class=" icon fab fa-angellist"> &nbsp;</i>Request book</a>
                 @endif
             @endif
         @endif
@@ -280,7 +280,44 @@
                 
                 
 
-    </div>                 
+    </div>       
+    
+    {{-- popup --}}
+    <div class="popup" id="contacts_{{ $details->id }}">
+        <div class="popup__content">
+            <div class="popup__right">
+                    <a href="{{ route('front-book-details', ['id' =>  $details->id ]) }}" class="popup__close">&times;</a>
+                <h2 class="heading-secondary u-margin-bottom-small tab_port"> Offer to you for the book </h2> 
+                <table>
+                    <form action="{{ route('store-suggestion') }}" class="form" method="post">
+                            {{ csrf_field() }}
+                    @if (isset($contacts))           
+                    @foreach ($contacts as $contact)
+                    <tr>
+                        <th style="width:50px;">
+                            <input type="checkbox" name="suggest_id[]" value="{{ $contact->user_id }}" required>
+                            <input type="hidden" name="book_id" value="{{ $details->id }}">
+                        </th>
+                        <th>
+                            <p>{{ $contact->fname }} {{ $contact->lname }}</p>
+                        </th>
+                        <th>
+                            <p>{{ $contact->email }}</p>
+                        </th>
+                    </tr>
+                    @endforeach
+                    @endif
+                   
+                </table>
+                <div class="popup__close p-5 offset-md-5">
+                        <button type="submit" class="btn btn-md btn-text .u-margin-btn">Suggest</button>
+                    
+                    </div>                   
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- popup --}}
     
 </section>
 
@@ -311,8 +348,17 @@
     });
     </script>
       <script type="text/javascript">
-        $("#share").jsSocials({
-            shares: ["email", "twitter", "facebook"]
-        });
+            $(function(){
+                var linkurl = "http://127.0.0.1:8000";
+                $("#share").jsSocials({
+                    url : linkurl,
+                    text : "from pustak",
+                    showLabel : false,
+                    showCount : false,
+                    shareIn : 'popup',
+                    shares: ["email", "twitter", "facebook"]
+                });
+            });
+        
     </script>
 @endsection

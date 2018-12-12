@@ -1,5 +1,7 @@
 <div class="popup" id="ratebook{{ $r_id }}">
         <div class="popup__content">
+                <a href="{{ route('exchange-log') }}" class="popup__close">&times;</a>
+
                 <h2 class="heading-secondary u-margin-bottom-small tab_port center-text">Rate the book</h2> 
                 <div class="row">
                     <div class=" parentCard">

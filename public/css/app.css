@@ -10566,8 +10566,8 @@ body {
 }
 
 .u-margin-bottom-big {
-  margin-bottom: 8rem !important;
-  margin-top: 6rem !important;
+  margin-bottom: 4rem !important;
+  margin-top: 0rem !important;
 }
 
 .u-margin-bottom-medium {
@@ -10961,6 +10961,10 @@ a:hover {
   hyphens: auto;
 }
 
+.requestpop {
+  padding-top: 10rem;
+}
+
 .popup:target {
   opacity: 1;
   visibility: visible;
@@ -10970,6 +10974,10 @@ a:hover {
   opacity: 1;
   -webkit-transform: translate(-50%, -50%) scale(1);
           transform: translate(-50%, -50%) scale(1);
+}
+
+.padding {
+  padding-left: 6rem;
 }
 
 .popup__close:link,
@@ -10987,7 +10995,7 @@ a:hover {
 }
 
 .popup__close:hover {
-  color: #f3f2f2;
+  color: #000;
 }
 
 .popup-nav {
@@ -11513,7 +11521,7 @@ tr:nth-child(even) {
 }
 
 .header {
-  height: 93vh;
+  height: 76vh;
   background-size: cover;
   background-position: top;
   position: relative;
@@ -11552,7 +11560,7 @@ tr:nth-child(even) {
           transform: translate(-50%, -50%);
   text-align: center;
   background-color: rgba(255, 255, 255, 0.5);
-  padding: 30px;
+  padding: 24px;
 }
 
 .icon {

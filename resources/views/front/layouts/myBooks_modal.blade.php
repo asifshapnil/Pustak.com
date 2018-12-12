@@ -1,7 +1,8 @@
-<div class="popup" id="popup">
+<div class="popup requestpop" id="popup">
         <div class="popup__content">
             <div class="popup__right">
-                <h2 class="heading-secondary u-margin-bottom-small tab_port">Select from Your  Books to offer an exchange</h2>
+                    <a href="{{ route('front-book-details', ['id' =>  $details->id ]) }}" class="popup__close">&times;</a>
+                <h2 class="heading-secondary u-margin-bottom-small tab_port padding">Select from Your  Books to offer an exchange</h2>
                 <form action="{{ route('store-exchange') }}" class="form" method="post">
                         {{ csrf_field() }}
 

@@ -98,8 +98,8 @@ body {
 }
 
 .u-margin-bottom-big {
-  margin-bottom: 8rem !important;
-  margin-top: 6rem !important; 
+  margin-bottom: 4rem !important;
+  margin-top: 0rem !important; 
 }
 
 .u-margin-bottom-medium {
@@ -442,15 +442,25 @@ body {
     -moz-hyphens: auto;
     hyphens: auto;
    }
+   .requestpop{
+    padding-top: 10rem;
+
+   }
   .popup:target {
     opacity: 1;
     visibility: visible;
    }
   .popup:target .popup__content {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1); 
+
    }
-  .popup__close:link, .popup__close:visited {
+   .padding{
+    padding-left: 6rem;
+
+   }
+  .popup__close:link,
+   .popup__close:visited {
     color: #777;
     position: absolute;
     top: 2.5rem;
@@ -462,7 +472,7 @@ body {
     line-height: 1; 
   }
   .popup__close:hover {
-    color: #f3f2f2; 
+    color: #000; 
   }
 
 .popup-nav {
@@ -925,7 +935,7 @@ tr:nth-child(even) {
  }
 
 .header {
-  height: 93vh;
+  height: 76vh;
   // background-image: url(../img/paul-schafer.jpg);
   background-size: cover;
   background-position: top;
@@ -959,7 +969,7 @@ tr:nth-child(even) {
     transform: translate(-50%, -50%);
     text-align: center;
     background-color: rgba(255, 255, 255, 0.5);
-    padding: 30px;
+    padding: 24px;
    }
 
 .icon {

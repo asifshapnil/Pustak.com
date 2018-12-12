@@ -70,7 +70,7 @@
                     </p> 
                     <div class="buttons">
                         <a href="{{ $request!=0 ? '/user/my-books-requests#'.$book->id:'' }}" class="btn-items .u-margin-btn {{ $request!=0 ? 'activeLink' : '' }}"> <i class=" icon fab fa-angellist"> &nbsp;</i>{{ $request }} requests</a>
-                        <a href="#" class="btn-items .u-margin-btn  "> <i class=" icon fab fa-angellist"> &nbsp;</i>suggest book</a>
+                        <a href="#contacts_{{ $book->id }}" class="btn-items .u-margin-btn  "> <i class=" icon fab fa-angellist"> &nbsp;</i>suggest book</a>
                         <a href="{{ route('user-edit-book', ['title'=>$book->title, 'id'=>$book->id]) }}" class="btn-items .u-margin-btn  "> <i class=" icon fas fa-edit"> &nbsp;</i>edit book</a>
                         <a href="{{ route('book-delete', ['book' => $book->id]) }}" class=""> <i class="icontrash icon fa fa-trash-alt" style="font-size:18px;"> &nbsp;</i></a>
             
@@ -78,6 +78,42 @@
                 </div>
             </div>
         </div>
+         {{-- popup --}}
+         <div class="popup" id="contacts_{{ $book->id }}">
+            <div class="popup__content">
+                <div class="popup__right">
+                        <a href="{{ route('user-my-page') }}" class="popup__close">&times;</a>
+                    <h2 class="heading-secondary u-margin-bottom-small tab_port"> Offer to you for the book </h2> 
+                    <table>
+                        <form action="{{ route('store-suggestion') }}" class="form" method="post">
+                                {{ csrf_field() }}
+                        @if (isset($contacts))           
+                        @foreach ($contacts as $contact)
+                        <tr>
+                            <th style="width:50px;">
+                                <input type="checkbox" name="suggest_id[]" value="{{ $contact->user_id }}" required>
+                                <input type="hidden" name="book_id" value="{{ $book->id }}">
+                            </th>
+                            <th>
+                                <p>{{ $contact->fname }} {{ $contact->lname }}</p>
+                            </th>
+                            <th>
+                                <p>{{ $contact->email }}</p>
+                            </th>
+                        </tr>
+                        @endforeach
+                        @endif
+                       
+                    </table>
+                    <div class="popup__close p-5 offset-md-5">
+                            <button type="submit" class="btn btn-md btn-text .u-margin-btn">Suggest</button>
+                        
+                        </div>                   
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{-- popup --}}
         @endforeach
 
     </div>

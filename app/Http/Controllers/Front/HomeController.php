@@ -9,6 +9,8 @@ use App\Model\Book;
 use App\Model\Category;
 use App\Model\Writer;
 use App\Model\BookImage;
+use App\Model\Contact;
+
 use Auth;
 use Image;
 
@@ -70,11 +72,18 @@ class HomeController extends Controller
         // return ($data['details']);
         if (Auth::check()) {
             $data['my_books'] = UserBooksDetail::Join('books', 'userbooksdetails.book_id', '=', 'books.id')
-            ->join('categories', 'categories.id', '=', 'books.category_id')
-            ->join('writers', 'writers.id', '=', 'books.writer_id')
-            ->select('userbooksdetails.*', 'books.title', 'categories.category_name', 'writers.writers_name' )
-            ->where('userbooksdetails.user_id', '=', Auth::user()->id)
-            ->get();       
+                                ->join('categories', 'categories.id', '=', 'books.category_id')
+                                ->join('writers', 'writers.id', '=', 'books.writer_id')
+                                ->select('userbooksdetails.*', 'books.title', 'categories.category_name', 'writers.writers_name' )
+                                ->where('userbooksdetails.user_id', '=', Auth::user()->id)
+                                ->get();  
+            
+            
+            $data['contacts'] = Contact::Join('users', 'users.id', '=', 'contacts.contact_id')
+                                ->Join('profile', 'profile.user_id', '=', 'users.id')
+                                ->select('profile.user_id', 'profile.image', 'users.fname', 'users.lname', 'users.email')
+                                ->where('contacts.user_id', '=', Auth::user()->id)
+                                ->get();
         }
         if (isset($request->exchange_id)) {
             $data['exchangeId'] = $request->exchange_id;

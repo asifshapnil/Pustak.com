@@ -16,6 +16,7 @@
 
 
             <div class="popup__right">
+                    <a href="{{ route('exchange-log') }}" class="popup__close">&times;</a>
                 <h2 class="heading-secondary u-margin-bottom-small tab_port">Shipping Address</h2> 
                 <small class="offset-md-3">
                     @if (isset($contact_status))
