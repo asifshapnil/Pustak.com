@@ -55,6 +55,8 @@ Route::middleware('auth')->prefix('user')->group(function(){
   Route::post('/my-rating', 'User\BookController@storeRating')->name('store-rating');
 
   Route::get('/got-my-book', 'User\ExchangeController@gotBook')->name('ex-complete');
+  Route::get('/accept-contacts', 'User\ContactController@accept')->name('accept-contacts');
+  Route::get('/send-req-contacts', 'User\ContactController@sendReq')->name('send-req-contacts');
 
 
 });

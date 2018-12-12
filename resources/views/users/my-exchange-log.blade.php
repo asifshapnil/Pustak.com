@@ -43,6 +43,9 @@
                 $request = $bookData[2];
                 $shipping_address = $bookData[3];
                 $rating = $bookData[4];
+                if (isset($bookData[5])) {
+                    $contact_status = $bookData[5];
+                }
                 $myRate = 0;
                 empty($rating) ? $myRate = 0 : $myRate = round($rating->ratingValue);
 

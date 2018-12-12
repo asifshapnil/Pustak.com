@@ -12144,6 +12144,10 @@ label {
   color: #fff !important;
 }
 
+.contact {
+  color: #6B1717;
+}
+
 [v-cloak] {
   display: none;
 }
