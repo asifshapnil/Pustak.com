@@ -2,7 +2,7 @@
 
 @section('custom_css')
 		<style type="text/css">
-		
+
 		</style>
 @stop
 
@@ -22,14 +22,14 @@
 				{{ csrf_field() }}
 
 				<div class="form__group">
-					<input type="text" class="form__input_other form-control" id="Book_title" v-model="book" 
+					<input type="text" class="form__input_other form-control" id="Book_title" v-model="book"
 						v-on:Keyup="getBook" value="{{ isset($bookInfo) ? $bookInfo->title : '' }}">
 					{{-- <label for="title" class="form__label" >Book Title</label> --}}
 					<div class="form__input_other " v-if="results.length" style="z-index: 99999; background:#fff; position:relative;">
 						<p v-cloak v-for="result in results">
-							
+
 							<a :href="'/user/get-book-info?' + 'book=' + result.id">@{{ result.title }}</a>
-							
+
 						</p>
 					</div>
 				</div>
@@ -63,7 +63,7 @@
 							<option value="1">publisher</option>
 							<option value="1">publisher</option>
 						</select>
-	
+
 						<label for="publisher" class="form__label" >Publisher</label>
 					</div>
 					<div class="form__group">
@@ -73,10 +73,10 @@
 							<select name="publishing_year" class="form__input_other form-control" id="publishing_year">
 								@for ($i=$c_year; $i>$c_year-101; $i--)
 									<option value="{{ $i }}">{{ $i }}</option>
-								@endfor		
+								@endfor
 							</select>
 							<label for="publishing_year" class="form__label" >Publishing Year</label>
-						</div>	
+						</div>
 				<div class="form__group">
 					<input type="number" class="form__input_other form-control" name="isbn" placeholder="ISBN Number" id="isbn" required>
 					<label for="isbn" class="form__label" >ISBN Number</label>
@@ -108,7 +108,7 @@
 				<div class="form__group  ">
 					<input type="file" class="form__input_other form-control" name="image[]" placeholder="Book Image" id="image" required>
 					<label for="image" class="form__label" >Book Image</label>
-	
+
 				</div>
 
 			</div>
@@ -137,6 +137,7 @@
       el: '#app',
       data: {
 		book : '',
+		getId : '',
 		results:[],
 		bookInfo: {!! $bookInfo?json_encode($bookInfo):'' !!}
 	  },
@@ -163,7 +164,7 @@
 				this.book = this.bookInfo.title
 			}
 		}
- 
+
 	  },
 	  watch:{
 		getBook(){
@@ -172,8 +173,8 @@
 			}
 		}
 	  },
-	
-	  
+
+
     });
 
 
