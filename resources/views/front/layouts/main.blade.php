@@ -14,10 +14,16 @@
 
       <link rel="stylesheet" href="css/style.css">
       <title>BookSharing</title>
+      @yield('custom_css')
+
   </head>
   <body>
     @yield('content')
+    @include('users.layouts.footer')
+
   </body>
+  <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
+  @yield('custom_js')
+
 </html>
 
-@yield('custom_js')

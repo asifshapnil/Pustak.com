@@ -13,23 +13,7 @@
                                  </h2>
                             </div>
 
-                            <!-- <div class="form__group u-margin-bottom-medium">
-                                    <div class="form__radio-group">
-                                        <input type="radio" class="form__radio-input" name="size" id="small">
-                                        <label for="small" class="form__radio-label">
-                                            <span class="form__radio-button"></span>
-                                            Sign In with Facbook
-                                        </label>
-                                    </div>
-
-                                    <div class="form__radio-group">
-                                            <input type="radio" class="form__radio-input" name="size" id="large">
-                                            <label for="large" class="form__radio-label">
-                                                <span class="form__radio-button"></span>
-                                                Sign In with Google
-                                            </label>
-                                        </div>
-                                </div> -->
+                        
                                  <div class="form__group">
                                        <a href="#" class=" btn-text">Sign In with FaceBook &rarr;</a>
                                        <a href="#" class=" btn-text">Sign In with Google &rarr;</a>
@@ -64,7 +48,7 @@
                             </div>
 
                             <div class="form__group">
-                                <button class="btn btn--green" type="submit">Log in  &rarr;</button>
+                                <button class="btnc btn--green" type="submit">Log in  &rarr;</button>
                             </div>
 
                         </form>
