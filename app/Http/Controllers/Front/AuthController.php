@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
+use App\Model\Profile;
+
 
 
 class AuthController extends Controller
@@ -26,18 +28,37 @@ class AuthController extends Controller
 
     $user->save();
 
+    $profile = new Profile();
+    $profile->user_id = $user->id;
+    $profile->save();
+
+
     return redirect()->route('front-signIn');
 }
 
-  public function signIn(){
+  public function signIn(Request $request){
+    if (isset($request->id)) {
+      $data['bookId'] = $request->id;
+      return view('front.signIn', $data);
+    }
     return view('front.signIn');
+
   }
 
   public function store_signIn(Request $request){
     if (!Auth::attempt($request->only(['email', 'password']), $request->has('remember_token'))) {
       return redirect()->back()->with('error', 'Credentials do not match');
     }
+
+    if (isset($request->bookId)) {
+      return redirect()->route('front-book-details', ['id'=>$request->bookId]);
+    }
     return redirect()->route('user-my-page');
+  }
+
+  public function logout(){
+    Auth::logout();
+    return redirect('/');
   }
 
 
